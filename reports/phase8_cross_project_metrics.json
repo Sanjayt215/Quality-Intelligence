@@ -1,0 +1,341 @@
+[
+  {
+    "held_out_project": "apache/activemq",
+    "sample_size": 2880,
+    "defect_count": 1391,
+    "prevalence": 0.483,
+    "roc_auc": 0.7896,
+    "roc_auc_ci": [
+      0.774,
+      0.8035
+    ],
+    "pr_auc": 0.7746,
+    "pr_auc_ci": [
+      0.7487,
+      0.7963
+    ],
+    "churn_roc_auc": 0.7599,
+    "churn_pr_auc": 0.738,
+    "brier_score": 0.1875,
+    "prevalence_brier": 0.2497,
+    "precision_at_50": 0.7276,
+    "recall_at_50": 0.6607,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/camel",
+    "sample_size": 8299,
+    "defect_count": 2734,
+    "prevalence": 0.3294,
+    "roc_auc": 0.7517,
+    "roc_auc_ci": [
+      0.7382,
+      0.7632
+    ],
+    "pr_auc": 0.5942,
+    "pr_auc_ci": [
+      0.5741,
+      0.6123
+    ],
+    "churn_roc_auc": 0.7417,
+    "churn_pr_auc": 0.5887,
+    "brier_score": 0.2218,
+    "prevalence_brier": 0.2209,
+    "precision_at_50": 0.4733,
+    "recall_at_50": 0.7816,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/cassandra",
+    "sample_size": 5245,
+    "defect_count": 2939,
+    "prevalence": 0.5603,
+    "roc_auc": 0.8263,
+    "roc_auc_ci": [
+      0.8141,
+      0.8366
+    ],
+    "pr_auc": 0.8495,
+    "pr_auc_ci": [
+      0.8325,
+      0.8625
+    ],
+    "churn_roc_auc": 0.8054,
+    "churn_pr_auc": 0.8219,
+    "brier_score": 0.1788,
+    "prevalence_brier": 0.2464,
+    "precision_at_50": 0.8213,
+    "recall_at_50": 0.6676,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/flink",
+    "sample_size": 3534,
+    "defect_count": 1511,
+    "prevalence": 0.4276,
+    "roc_auc": 0.8084,
+    "roc_auc_ci": [
+      0.7949,
+      0.8202
+    ],
+    "pr_auc": 0.753,
+    "pr_auc_ci": [
+      0.7347,
+      0.7763
+    ],
+    "churn_roc_auc": 0.7635,
+    "churn_pr_auc": 0.6785,
+    "brier_score": 0.2013,
+    "prevalence_brier": 0.2448,
+    "precision_at_50": 0.5945,
+    "recall_at_50": 0.8637,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/groovy",
+    "sample_size": 3031,
+    "defect_count": 1505,
+    "prevalence": 0.4965,
+    "roc_auc": 0.7577,
+    "roc_auc_ci": [
+      0.7428,
+      0.7765
+    ],
+    "pr_auc": 0.7369,
+    "pr_auc_ci": [
+      0.7099,
+      0.7636
+    ],
+    "churn_roc_auc": 0.7455,
+    "churn_pr_auc": 0.7235,
+    "brier_score": 0.2032,
+    "prevalence_brier": 0.25,
+    "precision_at_50": 0.7308,
+    "recall_at_50": 0.606,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/hadoop",
+    "sample_size": 2865,
+    "defect_count": 0,
+    "prevalence": 0.0,
+    "roc_auc": null,
+    "roc_auc_ci": null,
+    "pr_auc": null,
+    "pr_auc_ci": null,
+    "churn_roc_auc": null,
+    "churn_pr_auc": null,
+    "brier_score": null,
+    "prevalence_brier": null,
+    "precision_at_50": null,
+    "recall_at_50": null,
+    "notes": "Single-class partition; discrimination metrics not defined."
+  },
+  {
+    "held_out_project": "apache/hadoop-hdfs",
+    "sample_size": 2330,
+    "defect_count": 1970,
+    "prevalence": 0.8455,
+    "roc_auc": 0.7171,
+    "roc_auc_ci": [
+      0.6909,
+      0.7439
+    ],
+    "pr_auc": 0.9195,
+    "pr_auc_ci": [
+      0.9048,
+      0.9335
+    ],
+    "churn_roc_auc": 0.7943,
+    "churn_pr_auc": 0.9407,
+    "brier_score": 0.2539,
+    "prevalence_brier": 0.1306,
+    "precision_at_50": 0.9173,
+    "recall_at_50": 0.569,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/hadoop-mapreduce",
+    "sample_size": 1088,
+    "defect_count": 825,
+    "prevalence": 0.7583,
+    "roc_auc": 0.7363,
+    "roc_auc_ci": [
+      0.6979,
+      0.7721
+    ],
+    "pr_auc": 0.8675,
+    "pr_auc_ci": [
+      0.8386,
+      0.8919
+    ],
+    "churn_roc_auc": 0.7544,
+    "churn_pr_auc": 0.8915,
+    "brier_score": 0.1965,
+    "prevalence_brier": 0.1833,
+    "precision_at_50": 0.8663,
+    "recall_at_50": 0.7382,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/hbase",
+    "sample_size": 4747,
+    "defect_count": 3195,
+    "prevalence": 0.6731,
+    "roc_auc": 0.8222,
+    "roc_auc_ci": [
+      0.8088,
+      0.8353
+    ],
+    "pr_auc": 0.8903,
+    "pr_auc_ci": [
+      0.8789,
+      0.9014
+    ],
+    "churn_roc_auc": 0.813,
+    "churn_pr_auc": 0.8808,
+    "brier_score": 0.1809,
+    "prevalence_brier": 0.2201,
+    "precision_at_50": 0.8703,
+    "recall_at_50": 0.7121,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/hive",
+    "sample_size": 4037,
+    "defect_count": 3276,
+    "prevalence": 0.8115,
+    "roc_auc": 0.8567,
+    "roc_auc_ci": [
+      0.843,
+      0.8707
+    ],
+    "pr_auc": 0.9596,
+    "pr_auc_ci": [
+      0.9538,
+      0.9649
+    ],
+    "churn_roc_auc": 0.8154,
+    "churn_pr_auc": 0.9423,
+    "brier_score": 0.1638,
+    "prevalence_brier": 0.153,
+    "precision_at_50": 0.9383,
+    "recall_at_50": 0.7567,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/ignite",
+    "sample_size": 4400,
+    "defect_count": 1416,
+    "prevalence": 0.3218,
+    "roc_auc": 0.8447,
+    "roc_auc_ci": [
+      0.8331,
+      0.8548
+    ],
+    "pr_auc": 0.7401,
+    "pr_auc_ci": [
+      0.7151,
+      0.7621
+    ],
+    "churn_roc_auc": 0.8413,
+    "churn_pr_auc": 0.7359,
+    "brier_score": 0.16,
+    "prevalence_brier": 0.2183,
+    "precision_at_50": 0.6032,
+    "recall_at_50": 0.7472,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/kafka",
+    "sample_size": 612,
+    "defect_count": 468,
+    "prevalence": 0.7647,
+    "roc_auc": 0.9018,
+    "roc_auc_ci": [
+      0.873,
+      0.9267
+    ],
+    "pr_auc": 0.9659,
+    "pr_auc_ci": [
+      0.9507,
+      0.9766
+    ],
+    "churn_roc_auc": 0.8843,
+    "churn_pr_auc": 0.9556,
+    "brier_score": 0.1466,
+    "prevalence_brier": 0.1799,
+    "precision_at_50": 0.9497,
+    "recall_at_50": 0.7671,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/spark",
+    "sample_size": 684,
+    "defect_count": 472,
+    "prevalence": 0.6901,
+    "roc_auc": 0.8022,
+    "roc_auc_ci": [
+      0.7633,
+      0.8334
+    ],
+    "pr_auc": 0.8645,
+    "pr_auc_ci": [
+      0.8252,
+      0.8991
+    ],
+    "churn_roc_auc": 0.7578,
+    "churn_pr_auc": 0.8426,
+    "brier_score": 0.1561,
+    "prevalence_brier": 0.2139,
+    "precision_at_50": 0.8031,
+    "recall_at_50": 0.8814,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/zeppelin",
+    "sample_size": 659,
+    "defect_count": 413,
+    "prevalence": 0.6267,
+    "roc_auc": 0.842,
+    "roc_auc_ci": [
+      0.8161,
+      0.8686
+    ],
+    "pr_auc": 0.8986,
+    "pr_auc_ci": [
+      0.8764,
+      0.924
+    ],
+    "churn_roc_auc": 0.7887,
+    "churn_pr_auc": 0.8468,
+    "brier_score": 0.1639,
+    "prevalence_brier": 0.2339,
+    "precision_at_50": 0.8464,
+    "recall_at_50": 0.7603,
+    "notes": "Valid evaluation."
+  },
+  {
+    "held_out_project": "apache/zookeeper",
+    "sample_size": 423,
+    "defect_count": 306,
+    "prevalence": 0.7234,
+    "roc_auc": 0.8214,
+    "roc_auc_ci": [
+      0.773,
+      0.8661
+    ],
+    "pr_auc": 0.9068,
+    "pr_auc_ci": [
+      0.8636,
+      0.9436
+    ],
+    "churn_roc_auc": 0.8418,
+    "churn_pr_auc": 0.9203,
+    "brier_score": 0.1511,
+    "prevalence_brier": 0.2001,
+    "precision_at_50": 0.8436,
+    "recall_at_50": 0.8464,
+    "notes": "Valid evaluation."
+  }
+]

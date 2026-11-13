@@ -1,0 +1,1403 @@
+{
+  "audit_meta": {
+    "timestamp_utc": "2026-10-10T11:59:31.237829+00:00",
+    "target_column": "buggy",
+    "id_column": "commit_id",
+    "data_directory": "C:\\Users\\sanja\\Downloads\\Data_Analytic_Project\\data\\raw",
+    "expected_files_count": 4,
+    "available_files_count": 4,
+    "missing_files": []
+  },
+  "target_research_analysis": {
+    "dataset_name": "ApacheJIT",
+    "zenodo_record": "https://zenodo.org/records/5907847",
+    "github_repository": "https://github.com/hosseinkshvrz/apachejit",
+    "paper_citation": "Keshavarz & Nagappan (2022). ApacheJIT: A Large Dataset for Just-In-Time Defect Prediction. MSR 2022.",
+    "target_column": "buggy",
+    "original_target_meaning": "Bug-Inducing Commit (BIC) identified via SZZ heuristic tracing bug-fixing commits linked to Apache Jira issue reports.",
+    "supports_silent_regression": false,
+    "scientific_justification": "ApacheJIT's target indicates whether a commit introduced lines that were later modified in a bug fix. It does NOT track test execution results, test evasion, CI/CD pipeline pass/fail status, or whether the failure was a regression of existing behavior versus a newly introduced feature flaw. Therefore, this dataset models general Just-In-Time code-change defect risk, not silent regressions specifically.",
+    "recommended_model_title": "Code-Change Defect-Risk Predictor (JIT Defect Forecaster)",
+    "prerequisites_for_silent_regression": [
+      "CI/CD build and test execution status at commit time (proving existing tests passed).",
+      "Regression test suite results distinguishing regressions from novel feature bugs.",
+      "Production failure telemetry or bug reports specifically tagged as regressions of prior working releases."
+    ]
+  },
+  "file_inspections": {
+    "apachejit_total.csv": {
+      "file_name": "apachejit_total.csv",
+      "file_path": "C:\\Users\\sanja\\Downloads\\Data_Analytic_Project\\data\\raw\\apachejit_total.csv",
+      "exists": true,
+      "file_size_bytes": 16467692,
+      "file_size_mb": 15.705,
+      "row_count": 106674,
+      "column_count": 18,
+      "columns": [
+        "commit_id",
+        "project",
+        "buggy",
+        "fix",
+        "year",
+        "author_date",
+        "la",
+        "ld",
+        "nf",
+        "nd",
+        "ns",
+        "ent",
+        "ndev",
+        "age",
+        "nuc",
+        "aexp",
+        "arexp",
+        "asexp"
+      ],
+      "dtypes": {
+        "commit_id": "str",
+        "project": "str",
+        "buggy": "bool",
+        "fix": "bool",
+        "year": "int64",
+        "author_date": "int64",
+        "la": "int64",
+        "ld": "int64",
+        "nf": "int64",
+        "nd": "int64",
+        "ns": "int64",
+        "ent": "float64",
+        "ndev": "float64",
+        "age": "float64",
+        "nuc": "float64",
+        "aexp": "int64",
+        "arexp": "float64",
+        "asexp": "float64"
+      },
+      "missing_counts": {
+        "commit_id": 0,
+        "project": 0,
+        "buggy": 0,
+        "fix": 0,
+        "year": 0,
+        "author_date": 0,
+        "la": 0,
+        "ld": 0,
+        "nf": 0,
+        "nd": 0,
+        "ns": 0,
+        "ent": 0,
+        "ndev": 0,
+        "age": 0,
+        "nuc": 0,
+        "aexp": 0,
+        "arexp": 0,
+        "asexp": 0
+      },
+      "missing_pcts": {
+        "commit_id": 0.0,
+        "project": 0.0,
+        "buggy": 0.0,
+        "fix": 0.0,
+        "year": 0.0,
+        "author_date": 0.0,
+        "la": 0.0,
+        "ld": 0.0,
+        "nf": 0.0,
+        "nd": 0.0,
+        "ns": 0.0,
+        "ent": 0.0,
+        "ndev": 0.0,
+        "age": 0.0,
+        "nuc": 0.0,
+        "aexp": 0.0,
+        "arexp": 0.0,
+        "asexp": 0.0
+      },
+      "high_missing_cols": [],
+      "duplicate_rows": 0,
+      "identifier_audit": {
+        "id_column": "commit_id",
+        "present": true,
+        "duplicate_ids": 0,
+        "unique_ids": 106674
+      },
+      "numeric_columns": [
+        "year",
+        "author_date",
+        "la",
+        "ld",
+        "nf",
+        "nd",
+        "ns",
+        "ent",
+        "ndev",
+        "age",
+        "nuc",
+        "aexp",
+        "arexp",
+        "asexp"
+      ],
+      "boolean_columns": [
+        "buggy",
+        "fix"
+      ],
+      "categorical_columns": [
+        "commit_id",
+        "project"
+      ],
+      "constant_columns": [],
+      "unique_counts": {
+        "commit_id": 106674,
+        "project": 15,
+        "buggy": 2,
+        "fix": 2,
+        "year": 17,
+        "author_date": 105498,
+        "la": 3089,
+        "ld": 1984,
+        "nf": 100,
+        "nd": 61,
+        "ns": 27,
+        "ent": 53322,
+        "ndev": 3928,
+        "age": 16233,
+        "nuc": 17657,
+        "aexp": 12089,
+        "arexp": 33450,
+        "asexp": 15944
+      },
+      "suspicious_categorical": {
+        "commit_id": {
+          "unique_count": 106674,
+          "top_values": {
+            "7b8480744ea6e6fb41efd4329bb470c8f3c763db": 1,
+            "192b631e7be302ecde822546ba70a9853ddbda01": 1,
+            "0ab6465a7dece117c61c3efd3ec95d20524bdad6": 1,
+            "449241d5fa1aeadd5eb9fa1280d4104dc0dfb891": 1,
+            "698df9f5b0816e05bbf97a390428f8ef94e0cdbf": 1,
+            "9063e6ec3341c131e1a97c4f83becc57577e4e1b": 1,
+            "ea53eef5ce6a983fc8d35ccfe4bfeff0e6d9c65c": 1,
+            "4fb3f2922e3aef0c494c315241826a7c9cb8e371": 1,
+            "e2c6289ab695e2b52dc9dd67338a05142219fed3": 1,
+            "3a0e164308dbf76322cc7473f6181694ca7e4867": 1
+          }
+        },
+        "project": {
+          "unique_count": 15,
+          "top_values": {
+            "apache/camel": 22700,
+            "apache/ignite": 12036,
+            "apache/hadoop": 11964,
+            "apache/flink": 11691,
+            "apache/hbase": 8730,
+            "apache/cassandra": 8159,
+            "apache/groovy": 8059,
+            "apache/hive": 6842,
+            "apache/activemq": 6126,
+            "apache/hadoop-hdfs": 2907
+          }
+        }
+      },
+      "numeric_statistics": {
+        "year": {
+          "min": 2003.0,
+          "max": 2019.0,
+          "mean": 2014.0507,
+          "median": 2015.0,
+          "std": 3.5425
+        },
+        "author_date": {
+          "min": 1063292086.0,
+          "max": 1577381993.0,
+          "mean": 1405114411.6194,
+          "median": 1422449297.0,
+          "std": 111382852.0193
+        },
+        "la": {
+          "min": 0.0,
+          "max": 9967.0,
+          "mean": 189.1323,
+          "median": 37.0,
+          "std": 533.1576
+        },
+        "ld": {
+          "min": 0.0,
+          "max": 9950.0,
+          "mean": 76.7315,
+          "median": 9.0,
+          "std": 312.6768
+        },
+        "nf": {
+          "min": 1.0,
+          "max": 100.0,
+          "mean": 6.3558,
+          "median": 3.0,
+          "std": 10.142
+        },
+        "nd": {
+          "min": 1.0,
+          "max": 89.0,
+          "mean": 2.9432,
+          "median": 2.0,
+          "std": 3.4179
+        },
+        "ns": {
+          "min": 1.0,
+          "max": 45.0,
+          "mean": 1.4212,
+          "median": 1.0,
+          "std": 0.9752
+        },
+        "ent": {
+          "min": 0.0,
+          "max": 6.569855608330951,
+          "mean": 1.3038,
+          "median": 1.0,
+          "std": 1.2432
+        },
+        "ndev": {
+          "min": 0.0,
+          "max": 167.5,
+          "mean": 5.2315,
+          "median": 2.3333333333333304,
+          "std": 9.1066
+        },
+        "age": {
+          "min": 0.0,
+          "max": 2713.05714285714,
+          "mean": 60.3268,
+          "median": 13.8181818181818,
+          "std": 136.148
+        },
+        "nuc": {
+          "min": 0.0,
+          "max": 3704.5,
+          "mean": 90.9068,
+          "median": 15.0,
+          "std": 251.2736
+        },
+        "aexp": {
+          "min": 0.0,
+          "max": 15795.0,
+          "mean": 1225.4252,
+          "median": 222.0,
+          "std": 2704.0829
+        },
+        "arexp": {
+          "min": 0.0,
+          "max": 4841.24999999963,
+          "mean": 606.9472,
+          "median": 180.333333333334,
+          "std": 1010.4006
+        },
+        "asexp": {
+          "min": 0.0,
+          "max": 7842.0,
+          "mean": 402.8263,
+          "median": 36.0,
+          "std": 991.4858
+        }
+      },
+      "target_audit": {
+        "target_column": "buggy",
+        "exists": true,
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "value_counts": {
+          "False": 78435,
+          "True": 28239
+        },
+        "distribution_pct": {
+          "False": 73.53,
+          "True": 26.47
+        },
+        "imbalance_ratio": 2.78,
+        "is_valid_binary": true,
+        "invalid_values": []
+      },
+      "temporal_columns": {
+        "year": {
+          "min": 2003.0,
+          "max": 2019.0,
+          "unique": 17
+        },
+        "author_date": {
+          "min": 1063292086.0,
+          "max": 1577381993.0,
+          "unique": 105498
+        }
+      },
+      "leakage_assessment": {
+        "high_cardinality_ids": [
+          {
+            "column": "commit_id",
+            "reason": "Cardinality is 106674/106674 (100.0%). Likely a unique identifier.",
+            "recommendation": "Exclude from model feature set to avoid overfitting on arbitrary IDs."
+          }
+        ],
+        "potential_leakage_risks": [
+          {
+            "column": "fix",
+            "reason": "Indicates whether this commit was itself a bug-fixing commit for an earlier defect.",
+            "recommendation": "Document semantics carefully. If used, evaluate whether developers know this at commit time and whether it correlates disproportionately with fix-inducing regressions."
+          },
+          {
+            "column": "year",
+            "reason": "Direct temporal marker. Tree-based models could split on timestamp/year rather than learning structural code change properties.",
+            "recommendation": "Use for chronological splitting and temporal validation; do not use as raw predictive features."
+          },
+          {
+            "column": "author_date",
+            "reason": "Direct temporal marker. Tree-based models could split on timestamp/year rather than learning structural code change properties.",
+            "recommendation": "Use for chronological splitting and temporal validation; do not use as raw predictive features."
+          }
+        ]
+      }
+    },
+    "apachejit_train.csv": {
+      "file_name": "apachejit_train.csv",
+      "file_path": "C:\\Users\\sanja\\Downloads\\Data_Analytic_Project\\data\\raw\\apachejit_train.csv",
+      "exists": true,
+      "file_size_bytes": 7038900,
+      "file_size_mb": 6.713,
+      "row_count": 44834,
+      "column_count": 18,
+      "columns": [
+        "commit_id",
+        "project",
+        "buggy",
+        "fix",
+        "year",
+        "author_date",
+        "la",
+        "ld",
+        "nf",
+        "nd",
+        "ns",
+        "ent",
+        "ndev",
+        "age",
+        "nuc",
+        "aexp",
+        "arexp",
+        "asexp"
+      ],
+      "dtypes": {
+        "commit_id": "str",
+        "project": "str",
+        "buggy": "bool",
+        "fix": "bool",
+        "year": "int64",
+        "author_date": "int64",
+        "la": "int64",
+        "ld": "int64",
+        "nf": "int64",
+        "nd": "int64",
+        "ns": "int64",
+        "ent": "float64",
+        "ndev": "float64",
+        "age": "float64",
+        "nuc": "float64",
+        "aexp": "int64",
+        "arexp": "float64",
+        "asexp": "float64"
+      },
+      "missing_counts": {
+        "commit_id": 0,
+        "project": 0,
+        "buggy": 0,
+        "fix": 0,
+        "year": 0,
+        "author_date": 0,
+        "la": 0,
+        "ld": 0,
+        "nf": 0,
+        "nd": 0,
+        "ns": 0,
+        "ent": 0,
+        "ndev": 0,
+        "age": 0,
+        "nuc": 0,
+        "aexp": 0,
+        "arexp": 0,
+        "asexp": 0
+      },
+      "missing_pcts": {
+        "commit_id": 0.0,
+        "project": 0.0,
+        "buggy": 0.0,
+        "fix": 0.0,
+        "year": 0.0,
+        "author_date": 0.0,
+        "la": 0.0,
+        "ld": 0.0,
+        "nf": 0.0,
+        "nd": 0.0,
+        "ns": 0.0,
+        "ent": 0.0,
+        "ndev": 0.0,
+        "age": 0.0,
+        "nuc": 0.0,
+        "aexp": 0.0,
+        "arexp": 0.0,
+        "asexp": 0.0
+      },
+      "high_missing_cols": [],
+      "duplicate_rows": 0,
+      "identifier_audit": {
+        "id_column": "commit_id",
+        "present": true,
+        "duplicate_ids": 0,
+        "unique_ids": 44834
+      },
+      "numeric_columns": [
+        "year",
+        "author_date",
+        "la",
+        "ld",
+        "nf",
+        "nd",
+        "ns",
+        "ent",
+        "ndev",
+        "age",
+        "nuc",
+        "aexp",
+        "arexp",
+        "asexp"
+      ],
+      "boolean_columns": [
+        "buggy",
+        "fix"
+      ],
+      "categorical_columns": [
+        "commit_id",
+        "project"
+      ],
+      "constant_columns": [],
+      "unique_counts": {
+        "commit_id": 44834,
+        "project": 15,
+        "buggy": 2,
+        "fix": 2,
+        "year": 14,
+        "author_date": 44555,
+        "la": 2365,
+        "ld": 1456,
+        "nf": 100,
+        "nd": 54,
+        "ns": 22,
+        "ent": 26198,
+        "ndev": 2394,
+        "age": 9330,
+        "nuc": 11696,
+        "aexp": 6652,
+        "arexp": 15998,
+        "asexp": 9197
+      },
+      "suspicious_categorical": {
+        "commit_id": {
+          "unique_count": 44834,
+          "top_values": {
+            "06a456ec1670fb26a86f8a18f5b55017ac961f39": 1,
+            "79f50a10e7688279664146bb3c18837dada370a4": 1,
+            "42437917f185f8efa3d947fae3bb08b584504650": 1,
+            "b6616e5fb6d537229d307cf8647ef483468175a6": 1,
+            "5d0abaebf0bd4b5d98f9ef173f23b3be5e6fb37f": 1,
+            "6ffeb5b3727c94e7ce6338be1a38b06344db9843": 1,
+            "a03930c1046a323bc1ade98605c24c7032ae67b2": 1,
+            "d5166cb9237df134d018db74429c505e62de596d": 1,
+            "7038de91ca407b907c8a07c0e0b94e48ae1d4cc3": 1,
+            "c0d7b88427a76246ac539cde0f1afddef503d97e": 1
+          }
+        },
+        "project": {
+          "unique_count": 15,
+          "top_values": {
+            "apache/camel": 8299,
+            "apache/cassandra": 5245,
+            "apache/hbase": 4747,
+            "apache/ignite": 4400,
+            "apache/hive": 4037,
+            "apache/flink": 3534,
+            "apache/groovy": 3031,
+            "apache/activemq": 2880,
+            "apache/hadoop": 2865,
+            "apache/hadoop-hdfs": 2330
+          }
+        }
+      },
+      "numeric_statistics": {
+        "year": {
+          "min": 2003.0,
+          "max": 2016.0,
+          "mean": 2012.8251,
+          "median": 2013.0,
+          "std": 2.5058
+        },
+        "author_date": {
+          "min": 1063292137.0,
+          "max": 1483181162.0,
+          "mean": 1366930057.6508,
+          "median": 1382383939.5,
+          "std": 78848272.7524
+        },
+        "la": {
+          "min": 0.0,
+          "max": 9967.0,
+          "mean": 223.1543,
+          "median": 52.0,
+          "std": 586.3597
+        },
+        "ld": {
+          "min": 0.0,
+          "max": 9389.0,
+          "mean": 85.7953,
+          "median": 10.0,
+          "std": 332.6383
+        },
+        "nf": {
+          "min": 1.0,
+          "max": 100.0,
+          "mean": 7.0302,
+          "median": 3.0,
+          "std": 10.6514
+        },
+        "nd": {
+          "min": 1.0,
+          "max": 72.0,
+          "mean": 3.1536,
+          "median": 2.0,
+          "std": 3.452
+        },
+        "ns": {
+          "min": 1.0,
+          "max": 25.0,
+          "mean": 1.4914,
+          "median": 1.0,
+          "std": 1.0168
+        },
+        "ent": {
+          "min": 0.0,
+          "max": 6.539436730763191,
+          "mean": 1.4118,
+          "median": 1.16908152347608,
+          "std": 1.2475
+        },
+        "ndev": {
+          "min": 0.0,
+          "max": 114.0,
+          "mean": 4.5505,
+          "median": 2.0,
+          "std": 7.5335
+        },
+        "age": {
+          "min": 0.0,
+          "max": 2713.05714285714,
+          "mean": 50.8817,
+          "median": 13.0,
+          "std": 109.9251
+        },
+        "nuc": {
+          "min": 0.0,
+          "max": 3230.5,
+          "mean": 113.6186,
+          "median": 18.550505050505052,
+          "std": 274.2586
+        },
+        "aexp": {
+          "min": 0.0,
+          "max": 11871.0,
+          "mean": 1042.6617,
+          "median": 266.0,
+          "std": 1989.7665
+        },
+        "arexp": {
+          "min": 0.0,
+          "max": 4366.551984126671,
+          "mean": 589.9392,
+          "median": 220.0,
+          "std": 867.4294
+        },
+        "asexp": {
+          "min": 0.0,
+          "max": 6094.0,
+          "mean": 395.4655,
+          "median": 33.0,
+          "std": 884.3156
+        }
+      },
+      "target_audit": {
+        "target_column": "buggy",
+        "exists": true,
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "value_counts": {
+          "True": 22421,
+          "False": 22413
+        },
+        "distribution_pct": {
+          "True": 50.01,
+          "False": 49.99
+        },
+        "imbalance_ratio": 1.0,
+        "is_valid_binary": true,
+        "invalid_values": []
+      },
+      "temporal_columns": {
+        "year": {
+          "min": 2003.0,
+          "max": 2016.0,
+          "unique": 14
+        },
+        "author_date": {
+          "min": 1063292137.0,
+          "max": 1483181162.0,
+          "unique": 44555
+        }
+      },
+      "leakage_assessment": {
+        "high_cardinality_ids": [
+          {
+            "column": "commit_id",
+            "reason": "Cardinality is 44834/44834 (100.0%). Likely a unique identifier.",
+            "recommendation": "Exclude from model feature set to avoid overfitting on arbitrary IDs."
+          }
+        ],
+        "potential_leakage_risks": [
+          {
+            "column": "fix",
+            "reason": "Indicates whether this commit was itself a bug-fixing commit for an earlier defect.",
+            "recommendation": "Document semantics carefully. If used, evaluate whether developers know this at commit time and whether it correlates disproportionately with fix-inducing regressions."
+          },
+          {
+            "column": "year",
+            "reason": "Direct temporal marker. Tree-based models could split on timestamp/year rather than learning structural code change properties.",
+            "recommendation": "Use for chronological splitting and temporal validation; do not use as raw predictive features."
+          },
+          {
+            "column": "author_date",
+            "reason": "Direct temporal marker. Tree-based models could split on timestamp/year rather than learning structural code change properties.",
+            "recommendation": "Use for chronological splitting and temporal validation; do not use as raw predictive features."
+          }
+        ]
+      }
+    },
+    "apachejit_test_large.csv": {
+      "file_name": "apachejit_test_large.csv",
+      "file_path": "C:\\Users\\sanja\\Downloads\\Data_Analytic_Project\\data\\raw\\apachejit_test_large.csv",
+      "exists": true,
+      "file_size_bytes": 4689193,
+      "file_size_mb": 4.472,
+      "row_count": 30111,
+      "column_count": 18,
+      "columns": [
+        "commit_id",
+        "project",
+        "buggy",
+        "fix",
+        "year",
+        "author_date",
+        "la",
+        "ld",
+        "nf",
+        "nd",
+        "ns",
+        "ent",
+        "ndev",
+        "age",
+        "nuc",
+        "aexp",
+        "arexp",
+        "asexp"
+      ],
+      "dtypes": {
+        "commit_id": "str",
+        "project": "str",
+        "buggy": "bool",
+        "fix": "bool",
+        "year": "int64",
+        "author_date": "int64",
+        "la": "int64",
+        "ld": "int64",
+        "nf": "int64",
+        "nd": "int64",
+        "ns": "int64",
+        "ent": "float64",
+        "ndev": "float64",
+        "age": "float64",
+        "nuc": "float64",
+        "aexp": "int64",
+        "arexp": "float64",
+        "asexp": "float64"
+      },
+      "missing_counts": {
+        "commit_id": 0,
+        "project": 0,
+        "buggy": 0,
+        "fix": 0,
+        "year": 0,
+        "author_date": 0,
+        "la": 0,
+        "ld": 0,
+        "nf": 0,
+        "nd": 0,
+        "ns": 0,
+        "ent": 0,
+        "ndev": 0,
+        "age": 0,
+        "nuc": 0,
+        "aexp": 0,
+        "arexp": 0,
+        "asexp": 0
+      },
+      "missing_pcts": {
+        "commit_id": 0.0,
+        "project": 0.0,
+        "buggy": 0.0,
+        "fix": 0.0,
+        "year": 0.0,
+        "author_date": 0.0,
+        "la": 0.0,
+        "ld": 0.0,
+        "nf": 0.0,
+        "nd": 0.0,
+        "ns": 0.0,
+        "ent": 0.0,
+        "ndev": 0.0,
+        "age": 0.0,
+        "nuc": 0.0,
+        "aexp": 0.0,
+        "arexp": 0.0,
+        "asexp": 0.0
+      },
+      "high_missing_cols": [],
+      "duplicate_rows": 0,
+      "identifier_audit": {
+        "id_column": "commit_id",
+        "present": true,
+        "duplicate_ids": 0,
+        "unique_ids": 30111
+      },
+      "numeric_columns": [
+        "year",
+        "author_date",
+        "la",
+        "ld",
+        "nf",
+        "nd",
+        "ns",
+        "ent",
+        "ndev",
+        "age",
+        "nuc",
+        "aexp",
+        "arexp",
+        "asexp"
+      ],
+      "boolean_columns": [
+        "buggy",
+        "fix"
+      ],
+      "categorical_columns": [
+        "commit_id",
+        "project"
+      ],
+      "constant_columns": [],
+      "unique_counts": {
+        "commit_id": 30111,
+        "project": 15,
+        "buggy": 2,
+        "fix": 2,
+        "year": 3,
+        "author_date": 29912,
+        "la": 2151,
+        "ld": 1239,
+        "nf": 100,
+        "nd": 51,
+        "ns": 24,
+        "ent": 16976,
+        "ndev": 2858,
+        "age": 8395,
+        "nuc": 6981,
+        "aexp": 6001,
+        "arexp": 12483,
+        "asexp": 7039
+      },
+      "suspicious_categorical": {
+        "commit_id": {
+          "unique_count": 30111,
+          "top_values": {
+            "f2d1b8db89cee7dad675639a50dab9f3c08f219f": 1,
+            "4b4acd39899bc02c6c4836e6848daed83b02dca6": 1,
+            "d87a63a9019d74a1c338c724e050952843a153e5": 1,
+            "c6c374eb09c28baa4d8fd9e5de30aa3554ef804e": 1,
+            "73b6bd0283eb4a9a9704a15d07974cde829ee2b6": 1,
+            "222f287b9d8deb01c65568a06847874aba3d6879": 1,
+            "d2f53a6c21b76ff54d0a6e5113c38fb63e8f8f1f": 1,
+            "7bb0624bab68d7dd136d0cd54a8f0c74790aca31": 1,
+            "39a38fd9338d158c9d150f7832d00c82af107dac": 1,
+            "4589ff2d42f0553e311f4fb4dfd545fce38374dc": 1
+          }
+        },
+        "project": {
+          "unique_count": 15,
+          "top_values": {
+            "apache/camel": 6432,
+            "apache/flink": 5454,
+            "apache/hadoop": 5421,
+            "apache/ignite": 3064,
+            "apache/hbase": 2158,
+            "apache/hive": 2090,
+            "apache/kafka": 1640,
+            "apache/groovy": 1351,
+            "apache/cassandra": 554,
+            "apache/spark": 539
+          }
+        }
+      },
+      "numeric_statistics": {
+        "year": {
+          "min": 2017.0,
+          "max": 2019.0,
+          "mean": 2018.0124,
+          "median": 2018.0,
+          "std": 0.83
+        },
+        "author_date": {
+          "min": 1377073080.0,
+          "max": 1577381993.0,
+          "mean": 1529054554.2812,
+          "median": 1528151077.0,
+          "std": 28392312.4355
+        },
+        "la": {
+          "min": 0.0,
+          "max": 9815.0,
+          "mean": 234.4974,
+          "median": 43.0,
+          "std": 621.3118
+        },
+        "ld": {
+          "min": 0.0,
+          "max": 9116.0,
+          "mean": 88.9421,
+          "median": 11.0,
+          "std": 319.2441
+        },
+        "nf": {
+          "min": 1.0,
+          "max": 100.0,
+          "mean": 7.3483,
+          "median": 3.0,
+          "std": 11.5421
+        },
+        "nd": {
+          "min": 1.0,
+          "max": 89.0,
+          "mean": 3.267,
+          "median": 2.0,
+          "std": 3.9848
+        },
+        "ns": {
+          "min": 1.0,
+          "max": 45.0,
+          "mean": 1.503,
+          "median": 1.0,
+          "std": 1.168
+        },
+        "ent": {
+          "min": 0.0,
+          "max": 6.56113645305362,
+          "mean": 1.4217,
+          "median": 1.1540157730728,
+          "std": 1.3266
+        },
+        "ndev": {
+          "min": 0.0,
+          "max": 167.5,
+          "mean": 6.9463,
+          "median": 3.1052631578947403,
+          "std": 12.1656
+        },
+        "age": {
+          "min": 0.0,
+          "max": 2605.0,
+          "mean": 83.7813,
+          "median": 24.5,
+          "std": 172.0373
+        },
+        "nuc": {
+          "min": 0.0,
+          "max": 3704.5,
+          "mean": 60.5487,
+          "median": 14.0,
+          "std": 228.6755
+        },
+        "aexp": {
+          "min": 0.0,
+          "max": 15795.0,
+          "mean": 1591.1684,
+          "median": 126.0,
+          "std": 3773.1066
+        },
+        "arexp": {
+          "min": 0.0,
+          "max": 4841.24999999963,
+          "mean": 616.7758,
+          "median": 98.9999999999999,
+          "std": 1251.9068
+        },
+        "asexp": {
+          "min": 0.0,
+          "max": 7842.0,
+          "mean": 358.6521,
+          "median": 16.0,
+          "std": 1142.7124
+        }
+      },
+      "target_audit": {
+        "target_column": "buggy",
+        "exists": true,
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "value_counts": {
+          "False": 24293,
+          "True": 5818
+        },
+        "distribution_pct": {
+          "False": 80.68,
+          "True": 19.32
+        },
+        "imbalance_ratio": 4.18,
+        "is_valid_binary": true,
+        "invalid_values": []
+      },
+      "temporal_columns": {
+        "year": {
+          "min": 2017.0,
+          "max": 2019.0,
+          "unique": 3
+        },
+        "author_date": {
+          "min": 1377073080.0,
+          "max": 1577381993.0,
+          "unique": 29912
+        }
+      },
+      "leakage_assessment": {
+        "high_cardinality_ids": [
+          {
+            "column": "commit_id",
+            "reason": "Cardinality is 30111/30111 (100.0%). Likely a unique identifier.",
+            "recommendation": "Exclude from model feature set to avoid overfitting on arbitrary IDs."
+          }
+        ],
+        "potential_leakage_risks": [
+          {
+            "column": "fix",
+            "reason": "Indicates whether this commit was itself a bug-fixing commit for an earlier defect.",
+            "recommendation": "Document semantics carefully. If used, evaluate whether developers know this at commit time and whether it correlates disproportionately with fix-inducing regressions."
+          },
+          {
+            "column": "year",
+            "reason": "Direct temporal marker. Tree-based models could split on timestamp/year rather than learning structural code change properties.",
+            "recommendation": "Use for chronological splitting and temporal validation; do not use as raw predictive features."
+          },
+          {
+            "column": "author_date",
+            "reason": "Direct temporal marker. Tree-based models could split on timestamp/year rather than learning structural code change properties.",
+            "recommendation": "Use for chronological splitting and temporal validation; do not use as raw predictive features."
+          }
+        ]
+      }
+    },
+    "apachejit_test_small.csv": {
+      "file_name": "apachejit_test_small.csv",
+      "file_path": "C:\\Users\\sanja\\Downloads\\Data_Analytic_Project\\data\\raw\\apachejit_test_small.csv",
+      "exists": true,
+      "file_size_bytes": 1167149,
+      "file_size_mb": 1.113,
+      "row_count": 7526,
+      "column_count": 18,
+      "columns": [
+        "commit_id",
+        "project",
+        "buggy",
+        "fix",
+        "year",
+        "author_date",
+        "la",
+        "ld",
+        "nf",
+        "nd",
+        "ns",
+        "ent",
+        "ndev",
+        "age",
+        "nuc",
+        "aexp",
+        "arexp",
+        "asexp"
+      ],
+      "dtypes": {
+        "commit_id": "str",
+        "project": "str",
+        "buggy": "bool",
+        "fix": "bool",
+        "year": "int64",
+        "author_date": "int64",
+        "la": "int64",
+        "ld": "int64",
+        "nf": "int64",
+        "nd": "int64",
+        "ns": "int64",
+        "ent": "float64",
+        "ndev": "float64",
+        "age": "float64",
+        "nuc": "float64",
+        "aexp": "int64",
+        "arexp": "float64",
+        "asexp": "float64"
+      },
+      "missing_counts": {
+        "commit_id": 0,
+        "project": 0,
+        "buggy": 0,
+        "fix": 0,
+        "year": 0,
+        "author_date": 0,
+        "la": 0,
+        "ld": 0,
+        "nf": 0,
+        "nd": 0,
+        "ns": 0,
+        "ent": 0,
+        "ndev": 0,
+        "age": 0,
+        "nuc": 0,
+        "aexp": 0,
+        "arexp": 0,
+        "asexp": 0
+      },
+      "missing_pcts": {
+        "commit_id": 0.0,
+        "project": 0.0,
+        "buggy": 0.0,
+        "fix": 0.0,
+        "year": 0.0,
+        "author_date": 0.0,
+        "la": 0.0,
+        "ld": 0.0,
+        "nf": 0.0,
+        "nd": 0.0,
+        "ns": 0.0,
+        "ent": 0.0,
+        "ndev": 0.0,
+        "age": 0.0,
+        "nuc": 0.0,
+        "aexp": 0.0,
+        "arexp": 0.0,
+        "asexp": 0.0
+      },
+      "high_missing_cols": [],
+      "duplicate_rows": 0,
+      "identifier_audit": {
+        "id_column": "commit_id",
+        "present": true,
+        "duplicate_ids": 0,
+        "unique_ids": 7526
+      },
+      "numeric_columns": [
+        "year",
+        "author_date",
+        "la",
+        "ld",
+        "nf",
+        "nd",
+        "ns",
+        "ent",
+        "ndev",
+        "age",
+        "nuc",
+        "aexp",
+        "arexp",
+        "asexp"
+      ],
+      "boolean_columns": [
+        "buggy",
+        "fix"
+      ],
+      "categorical_columns": [
+        "commit_id",
+        "project"
+      ],
+      "constant_columns": [],
+      "unique_counts": {
+        "commit_id": 7526,
+        "project": 15,
+        "buggy": 2,
+        "fix": 2,
+        "year": 3,
+        "author_date": 7512,
+        "la": 1155,
+        "ld": 653,
+        "nf": 94,
+        "nd": 39,
+        "ns": 16,
+        "ent": 4565,
+        "ndev": 1274,
+        "age": 2946,
+        "nuc": 2559,
+        "aexp": 2081,
+        "arexp": 3819,
+        "asexp": 2466
+      },
+      "suspicious_categorical": {
+        "commit_id": {
+          "unique_count": 7526,
+          "top_values": {
+            "999baceff36165d950a61dd9cc4342f252e64837": 1,
+            "2c799fb70aa47f9109714dc410862af24b4a0321": 1,
+            "22ac8c00db676ccc01d1a44ec206ee17790b46b0": 1,
+            "a9d3412b4ce40f5ab5a18756ede7e0606b653171": 1,
+            "6cf958c2fa7dab4a028039c7c6e8f23456a5d7e5": 1,
+            "d8836d4856599375951ef77f8189fb71a4335ada": 1,
+            "2a99b87af2ebe289e2fec94c9cdca0942397977d": 1,
+            "b9f1653151e28a7bf803ce7c70cbdd5f0b193dc0": 1,
+            "cc4301ca0842d9c3f66dfa39c5627744f5f91a8c": 1,
+            "812d75718eacec4d086e987fcf1e575a8f5bbd9b": 1
+          }
+        },
+        "project": {
+          "unique_count": 15,
+          "top_values": {
+            "apache/camel": 1611,
+            "apache/hadoop": 1392,
+            "apache/flink": 1304,
+            "apache/ignite": 804,
+            "apache/hbase": 549,
+            "apache/hive": 532,
+            "apache/kafka": 416,
+            "apache/groovy": 327,
+            "apache/zeppelin": 128,
+            "apache/cassandra": 126
+          }
+        }
+      },
+      "numeric_statistics": {
+        "year": {
+          "min": 2017.0,
+          "max": 2019.0,
+          "mean": 2018.0032,
+          "median": 2018.0,
+          "std": 0.8308
+        },
+        "author_date": {
+          "min": 1434391442.0,
+          "max": 1577359446.0,
+          "mean": 1528670379.3297,
+          "median": 1527526748.0,
+          "std": 28543976.0068
+        },
+        "la": {
+          "min": 0.0,
+          "max": 9742.0,
+          "mean": 234.1697,
+          "median": 43.0,
+          "std": 612.8573
+        },
+        "ld": {
+          "min": 0.0,
+          "max": 7355.0,
+          "mean": 89.8483,
+          "median": 11.0,
+          "std": 320.9349
+        },
+        "nf": {
+          "min": 1.0,
+          "max": 100.0,
+          "mean": 7.2703,
+          "median": 3.0,
+          "std": 11.5051
+        },
+        "nd": {
+          "min": 1.0,
+          "max": 89.0,
+          "mean": 3.253,
+          "median": 2.0,
+          "std": 3.9912
+        },
+        "ns": {
+          "min": 1.0,
+          "max": 45.0,
+          "mean": 1.4959,
+          "median": 1.0,
+          "std": 1.2037
+        },
+        "ent": {
+          "min": 0.0,
+          "max": 6.28945097956554,
+          "mean": 1.408,
+          "median": 1.162910605006775,
+          "std": 1.3226
+        },
+        "ndev": {
+          "min": 0.0,
+          "max": 160.5,
+          "mean": 6.8438,
+          "median": 3.081666666666665,
+          "std": 11.6195
+        },
+        "age": {
+          "min": 0.0,
+          "max": 2216.0,
+          "mean": 83.1858,
+          "median": 23.3923076923077,
+          "std": 172.7315
+        },
+        "nuc": {
+          "min": 0.0,
+          "max": 3171.5,
+          "mean": 57.5187,
+          "median": 14.0,
+          "std": 210.5139
+        },
+        "aexp": {
+          "min": 0.0,
+          "max": 15786.0,
+          "mean": 1556.4756,
+          "median": 128.0,
+          "std": 3732.0234
+        },
+        "arexp": {
+          "min": 0.0,
+          "max": 4839.24999999963,
+          "mean": 603.2679,
+          "median": 98.5,
+          "std": 1238.3136
+        },
+        "asexp": {
+          "min": 0.0,
+          "max": 7841.0,
+          "mean": 356.9129,
+          "median": 17.0,
+          "std": 1138.5217
+        }
+      },
+      "target_audit": {
+        "target_column": "buggy",
+        "exists": true,
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "value_counts": {
+          "False": 6078,
+          "True": 1448
+        },
+        "distribution_pct": {
+          "False": 80.76,
+          "True": 19.24
+        },
+        "imbalance_ratio": 4.2,
+        "is_valid_binary": true,
+        "invalid_values": []
+      },
+      "temporal_columns": {
+        "year": {
+          "min": 2017.0,
+          "max": 2019.0,
+          "unique": 3
+        },
+        "author_date": {
+          "min": 1434391442.0,
+          "max": 1577359446.0,
+          "unique": 7512
+        }
+      },
+      "leakage_assessment": {
+        "high_cardinality_ids": [
+          {
+            "column": "commit_id",
+            "reason": "Cardinality is 7526/7526 (100.0%). Likely a unique identifier.",
+            "recommendation": "Exclude from model feature set to avoid overfitting on arbitrary IDs."
+          }
+        ],
+        "potential_leakage_risks": [
+          {
+            "column": "fix",
+            "reason": "Indicates whether this commit was itself a bug-fixing commit for an earlier defect.",
+            "recommendation": "Document semantics carefully. If used, evaluate whether developers know this at commit time and whether it correlates disproportionately with fix-inducing regressions."
+          },
+          {
+            "column": "year",
+            "reason": "Direct temporal marker. Tree-based models could split on timestamp/year rather than learning structural code change properties.",
+            "recommendation": "Use for chronological splitting and temporal validation; do not use as raw predictive features."
+          },
+          {
+            "column": "author_date",
+            "reason": "Direct temporal marker. Tree-based models could split on timestamp/year rather than learning structural code change properties.",
+            "recommendation": "Use for chronological splitting and temporal validation; do not use as raw predictive features."
+          }
+        ]
+      }
+    }
+  },
+  "schema_comparisons": {
+    "train_vs_test_large": {
+      "file1": "apachejit_train.csv",
+      "file2": "apachejit_test_large.csv",
+      "compatible": true,
+      "columns_identical": true,
+      "cols1_missing_in_2": [],
+      "cols2_missing_in_1": [],
+      "dtype_mismatches": {}
+    },
+    "test_large_vs_test_small": {
+      "file1": "apachejit_test_large.csv",
+      "file2": "apachejit_test_small.csv",
+      "compatible": true,
+      "columns_identical": true,
+      "cols1_missing_in_2": [],
+      "cols2_missing_in_1": [],
+      "dtype_mismatches": {}
+    },
+    "train_vs_total": {
+      "file1": "apachejit_train.csv",
+      "file2": "apachejit_total.csv",
+      "compatible": true,
+      "columns_identical": true,
+      "cols1_missing_in_2": [],
+      "cols2_missing_in_1": [],
+      "dtype_mismatches": {}
+    }
+  },
+  "temporal_split_assessment": {
+    "train_file": "apachejit_train.csv",
+    "test_file": "apachejit_test_large.csv",
+    "train_rows": 44834,
+    "test_rows": 30111,
+    "commit_id_overlap_count": 0,
+    "train_year_range": [
+      2003,
+      2016
+    ],
+    "test_year_range": [
+      2017,
+      2019
+    ],
+    "train_date_range": [
+      1063292137,
+      1483181162
+    ],
+    "test_date_range": [
+      1377073080,
+      1577381993
+    ],
+    "is_strict_chronological_split_by_year": true,
+    "suitable_for_time_aware_evaluation": true
+  }
+}

@@ -1,0 +1,470 @@
+{
+  "validation_permutation_importance": {
+    "la": {
+      "mean": 0.02161,
+      "std": 0.00166,
+      "ci95_low": 0.02057,
+      "ci95_high": 0.02264
+    },
+    "ld": {
+      "mean": 0.00181,
+      "std": 0.00053,
+      "ci95_low": 0.00148,
+      "ci95_high": 0.00214
+    },
+    "nf": {
+      "mean": 0.00202,
+      "std": 0.00049,
+      "ci95_low": 0.00171,
+      "ci95_high": 0.00232
+    },
+    "nd": {
+      "mean": 6e-05,
+      "std": 0.00023,
+      "ci95_low": -8e-05,
+      "ci95_high": 0.0002
+    },
+    "ns": {
+      "mean": 0.00386,
+      "std": 0.00056,
+      "ci95_low": 0.00351,
+      "ci95_high": 0.00421
+    },
+    "ent": {
+      "mean": 0.00195,
+      "std": 0.00056,
+      "ci95_low": 0.0016,
+      "ci95_high": 0.0023
+    },
+    "ndev": {
+      "mean": 0.00715,
+      "std": 0.00064,
+      "ci95_low": 0.00675,
+      "ci95_high": 0.00754
+    },
+    "age": {
+      "mean": 0.00427,
+      "std": 0.00067,
+      "ci95_low": 0.00385,
+      "ci95_high": 0.00468
+    },
+    "nuc": {
+      "mean": -0.0,
+      "std": 0.0006,
+      "ci95_low": -0.00038,
+      "ci95_high": 0.00037
+    },
+    "aexp": {
+      "mean": 0.00024,
+      "std": 0.00051,
+      "ci95_low": -8e-05,
+      "ci95_high": 0.00055
+    },
+    "arexp": {
+      "mean": 0.00167,
+      "std": 0.00065,
+      "ci95_low": 0.00127,
+      "ci95_high": 0.00207
+    },
+    "asexp": {
+      "mean": 0.00365,
+      "std": 0.00063,
+      "ci95_low": 0.00326,
+      "ci95_high": 0.00404
+    },
+    "total_lines_changed": {
+      "mean": 0.01367,
+      "std": 0.0016,
+      "ci95_low": 0.01268,
+      "ci95_high": 0.01467
+    },
+    "net_lines_changed": {
+      "mean": 0.00136,
+      "std": 0.00048,
+      "ci95_low": 0.00106,
+      "ci95_high": 0.00166
+    },
+    "deletion_ratio": {
+      "mean": 0.00319,
+      "std": 0.00076,
+      "ci95_low": 0.00272,
+      "ci95_high": 0.00366
+    },
+    "files_per_subsystem": {
+      "mean": -0.0,
+      "std": 0.0003,
+      "ci95_low": -0.00019,
+      "ci95_high": 0.00018
+    },
+    "directories_per_file": {
+      "mean": 0.00124,
+      "std": 0.00038,
+      "ci95_low": 0.001,
+      "ci95_high": 0.00148
+    },
+    "experience_gap": {
+      "mean": 0.00061,
+      "std": 0.00038,
+      "ci95_low": 0.00037,
+      "ci95_high": 0.00084
+    },
+    "log1p_la": {
+      "mean": 0.02335,
+      "std": 0.00154,
+      "ci95_low": 0.0224,
+      "ci95_high": 0.02431
+    },
+    "log1p_ld": {
+      "mean": 0.00167,
+      "std": 0.00063,
+      "ci95_low": 0.00128,
+      "ci95_high": 0.00206
+    },
+    "log1p_total_lines_changed": {
+      "mean": 0.01175,
+      "std": 0.00137,
+      "ci95_low": 0.0109,
+      "ci95_high": 0.0126
+    },
+    "log1p_age": {
+      "mean": 0.00525,
+      "std": 0.00075,
+      "ci95_low": 0.00478,
+      "ci95_high": 0.00571
+    },
+    "log1p_nuc": {
+      "mean": -0.00073,
+      "std": 0.00052,
+      "ci95_low": -0.00105,
+      "ci95_high": -0.00041
+    },
+    "log1p_aexp": {
+      "mean": 0.00058,
+      "std": 0.00058,
+      "ci95_low": 0.00022,
+      "ci95_high": 0.00094
+    },
+    "log1p_arexp": {
+      "mean": 0.00245,
+      "std": 0.00068,
+      "ci95_low": 0.00203,
+      "ci95_high": 0.00288
+    },
+    "log1p_asexp": {
+      "mean": 0.00365,
+      "std": 0.00057,
+      "ci95_low": 0.0033,
+      "ci95_high": 0.00401
+    }
+  },
+  "mdi_importance": {
+    "la": 0.10537,
+    "ld": 0.02582,
+    "nf": 0.03117,
+    "nd": 0.01189,
+    "ns": 0.008,
+    "ent": 0.03144,
+    "ndev": 0.03094,
+    "age": 0.03032,
+    "nuc": 0.04462,
+    "aexp": 0.0203,
+    "arexp": 0.0235,
+    "asexp": 0.02482,
+    "total_lines_changed": 0.10079,
+    "net_lines_changed": 0.03641,
+    "deletion_ratio": 0.04128,
+    "files_per_subsystem": 0.01224,
+    "directories_per_file": 0.02675,
+    "experience_gap": 0.01745,
+    "log1p_la": 0.12314,
+    "log1p_ld": 0.0269,
+    "log1p_total_lines_changed": 0.08266,
+    "log1p_age": 0.03225,
+    "log1p_nuc": 0.04317,
+    "log1p_aexp": 0.01998,
+    "log1p_arexp": 0.02366,
+    "log1p_asexp": 0.02514
+  },
+  "domain_feature_groups": {
+    "Size & Churn": {
+      "feature_count": 8,
+      "features": [
+        "la",
+        "ld",
+        "total_lines_changed",
+        "net_lines_changed",
+        "deletion_ratio",
+        "log1p_la",
+        "log1p_ld",
+        "log1p_total_lines_changed"
+      ],
+      "total_mdi_importance": 0.5424,
+      "total_permutation_importance": 0.07841,
+      "mdi_share_pct": 54.2,
+      "perm_share_pct": 67.4
+    },
+    "Dispersion & Complexity": {
+      "feature_count": 6,
+      "features": [
+        "nf",
+        "nd",
+        "ns",
+        "ent",
+        "files_per_subsystem",
+        "directories_per_file"
+      ],
+      "total_mdi_importance": 0.1215,
+      "total_permutation_importance": 0.00913,
+      "mdi_share_pct": 12.2,
+      "perm_share_pct": 7.8
+    },
+    "Developer & Subsystem Experience": {
+      "feature_count": 7,
+      "features": [
+        "aexp",
+        "arexp",
+        "asexp",
+        "experience_gap",
+        "log1p_aexp",
+        "log1p_arexp",
+        "log1p_asexp"
+      ],
+      "total_mdi_importance": 0.1548,
+      "total_permutation_importance": 0.01285,
+      "mdi_share_pct": 15.5,
+      "perm_share_pct": 11.0
+    },
+    "Historical Change Activity": {
+      "feature_count": 5,
+      "features": [
+        "age",
+        "ndev",
+        "nuc",
+        "log1p_age",
+        "log1p_nuc"
+      ],
+      "total_mdi_importance": 0.1813,
+      "total_permutation_importance": 0.01594,
+      "mdi_share_pct": 18.1,
+      "perm_share_pct": 13.7
+    }
+  },
+  "temporal_stability": {
+    "epoch_importances": {
+      "Epoch 1 (2009-2011)": {
+        "la": 0.005890993803519007,
+        "ld": 0.0016972606603169681,
+        "nf": 0.00013342326443164244,
+        "nd": 0.0013194496640156483,
+        "ns": -0.00036679420765370894,
+        "ent": 0.0009941742807701326,
+        "ndev": 0.0033841965522671603,
+        "age": 0.0010460481524904308,
+        "nuc": -0.0005468621698801801,
+        "aexp": -0.001290152005825007,
+        "arexp": 0.00011336897087061981,
+        "asexp": -0.005527986980151422,
+        "total_lines_changed": 0.006597501605302392,
+        "net_lines_changed": -0.0005746149599954009,
+        "deletion_ratio": 0.0030515100258591056,
+        "files_per_subsystem": 0.0005047438600354059,
+        "directories_per_file": -0.0007836412499039769,
+        "experience_gap": -0.0011618408764755284,
+        "log1p_la": 0.009894426052791805,
+        "log1p_ld": 0.0012174838905755659,
+        "log1p_total_lines_changed": 0.005108761635970049,
+        "log1p_age": 0.0021074008960065616,
+        "log1p_nuc": 0.004197563896363188,
+        "log1p_aexp": -0.002191453690773293,
+        "log1p_arexp": 0.0005188617236762116,
+        "log1p_asexp": -0.004575145911816092
+      },
+      "Epoch 2 (2012-2014)": {
+        "la": 0.022668025249948664,
+        "ld": 0.0010028438944690965,
+        "nf": 0.002520552704205348,
+        "nd": 0.0008202745253674592,
+        "ns": 0.0002265329653558412,
+        "ent": 0.0012229615624940403,
+        "ndev": 0.014754386299774014,
+        "age": 0.0027798278829878065,
+        "nuc": 0.009757934202372453,
+        "aexp": -0.00010506670019667652,
+        "arexp": 0.00014961088126597133,
+        "asexp": 0.000900531273558669,
+        "total_lines_changed": 0.0064824698357975885,
+        "net_lines_changed": 0.002311639683412081,
+        "deletion_ratio": 0.0030331202089041833,
+        "files_per_subsystem": -0.0011113913940665964,
+        "directories_per_file": 0.0018647736039171248,
+        "experience_gap": 7.324590431447841e-05,
+        "log1p_la": 0.0163073338668539,
+        "log1p_ld": 0.0011580212993127948,
+        "log1p_total_lines_changed": 0.008492804111115882,
+        "log1p_age": 0.003385473894168456,
+        "log1p_nuc": 0.006355668086209865,
+        "log1p_aexp": -0.0006228905733040024,
+        "log1p_arexp": 4.062657552061921e-06,
+        "log1p_asexp": 0.0020548205760581918
+      },
+      "Epoch 3 (2015-2016)": {
+        "la": 0.02110259614110277,
+        "ld": 0.0017203574058340942,
+        "nf": 0.0027583773128119883,
+        "nd": 0.00013410384631127315,
+        "ns": 0.004167427857537409,
+        "ent": 0.0014653931668932474,
+        "ndev": 0.007189457343397954,
+        "age": 0.004397634541498885,
+        "nuc": 0.0006132230698097096,
+        "aexp": 6.140255863122946e-05,
+        "arexp": 0.0017525912190256455,
+        "asexp": 0.003483473143340543,
+        "total_lines_changed": 0.014546133638249147,
+        "net_lines_changed": 0.0014755914140964998,
+        "deletion_ratio": 0.0033678521168735375,
+        "files_per_subsystem": 6.824690291873381e-06,
+        "directories_per_file": 0.0015775674960869957,
+        "experience_gap": 0.00035760754808999984,
+        "log1p_la": 0.021510469346275297,
+        "log1p_ld": 0.0015264077811776966,
+        "log1p_total_lines_changed": 0.013566472743575387,
+        "log1p_age": 0.005719365201862425,
+        "log1p_nuc": -0.0010221503014610223,
+        "log1p_aexp": 0.00036131076096430627,
+        "log1p_arexp": 0.0028669773998989843,
+        "log1p_asexp": 0.00387793734386912
+      }
+    },
+    "epoch_rankings": {
+      "Epoch 1 (2009-2011)": {
+        "la": 3.0,
+        "ld": 9.0,
+        "nf": 16.0,
+        "nd": 10.0,
+        "ns": 18.0,
+        "ent": 13.0,
+        "ndev": 6.0,
+        "age": 12.0,
+        "nuc": 19.0,
+        "aexp": 23.0,
+        "arexp": 17.0,
+        "asexp": 26.0,
+        "total_lines_changed": 2.0,
+        "net_lines_changed": 20.0,
+        "deletion_ratio": 7.0,
+        "files_per_subsystem": 15.0,
+        "directories_per_file": 21.0,
+        "experience_gap": 22.0,
+        "log1p_la": 1.0,
+        "log1p_ld": 11.0,
+        "log1p_total_lines_changed": 4.0,
+        "log1p_age": 8.0,
+        "log1p_nuc": 5.0,
+        "log1p_aexp": 24.0,
+        "log1p_arexp": 14.0,
+        "log1p_asexp": 25.0
+      },
+      "Epoch 2 (2012-2014)": {
+        "la": 1.0,
+        "ld": 17.0,
+        "nf": 11.0,
+        "nd": 19.0,
+        "ns": 20.0,
+        "ent": 15.0,
+        "ndev": 3.0,
+        "age": 10.0,
+        "nuc": 4.0,
+        "aexp": 24.0,
+        "arexp": 21.0,
+        "asexp": 18.0,
+        "total_lines_changed": 6.0,
+        "net_lines_changed": 12.0,
+        "deletion_ratio": 9.0,
+        "files_per_subsystem": 26.0,
+        "directories_per_file": 14.0,
+        "experience_gap": 22.0,
+        "log1p_la": 2.0,
+        "log1p_ld": 16.0,
+        "log1p_total_lines_changed": 5.0,
+        "log1p_age": 8.0,
+        "log1p_nuc": 7.0,
+        "log1p_aexp": 25.0,
+        "log1p_arexp": 23.0,
+        "log1p_asexp": 13.0
+      },
+      "Epoch 3 (2015-2016)": {
+        "la": 2.0,
+        "ld": 15.0,
+        "nf": 13.0,
+        "nd": 23.0,
+        "ns": 8.0,
+        "ent": 19.0,
+        "ndev": 5.0,
+        "age": 7.0,
+        "nuc": 20.0,
+        "aexp": 24.0,
+        "arexp": 14.0,
+        "asexp": 10.0,
+        "total_lines_changed": 3.0,
+        "net_lines_changed": 18.0,
+        "deletion_ratio": 11.0,
+        "files_per_subsystem": 25.0,
+        "directories_per_file": 16.0,
+        "experience_gap": 22.0,
+        "log1p_la": 1.0,
+        "log1p_ld": 17.0,
+        "log1p_total_lines_changed": 4.0,
+        "log1p_age": 6.0,
+        "log1p_nuc": 26.0,
+        "log1p_aexp": 21.0,
+        "log1p_arexp": 12.0,
+        "log1p_asexp": 9.0
+      }
+    },
+    "spearman_correlations": {
+      "Epoch 1 (2009-2011)": {
+        "Epoch 1 (2009-2011)": {
+          "spearman_rho": 1.0,
+          "p_value": 2.3152321882723333e-189
+        },
+        "Epoch 2 (2012-2014)": {
+          "spearman_rho": 0.654,
+          "p_value": 0.0002901984586360758
+        },
+        "Epoch 3 (2015-2016)": {
+          "spearman_rho": 0.4735,
+          "p_value": 0.014551757727791633
+        }
+      },
+      "Epoch 2 (2012-2014)": {
+        "Epoch 1 (2009-2011)": {
+          "spearman_rho": 0.654,
+          "p_value": 0.0002901984586360758
+        },
+        "Epoch 2 (2012-2014)": {
+          "spearman_rho": 1.0,
+          "p_value": 2.3152321882723333e-189
+        },
+        "Epoch 3 (2015-2016)": {
+          "spearman_rho": 0.6096,
+          "p_value": 0.0009471012359945606
+        }
+      },
+      "Epoch 3 (2015-2016)": {
+        "Epoch 1 (2009-2011)": {
+          "spearman_rho": 0.4735,
+          "p_value": 0.014551757727791633
+        },
+        "Epoch 2 (2012-2014)": {
+          "spearman_rho": 0.6096,
+          "p_value": 0.0009471012359945606
+        },
+        "Epoch 3 (2015-2016)": {
+          "spearman_rho": 1.0,
+          "p_value": 2.3152321882723333e-189
+        }
+      }
+    }
+  }
+}

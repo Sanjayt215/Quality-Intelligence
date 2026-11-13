@@ -1,0 +1,87 @@
+# Phase 10 Initial Architecture and Repository Audit
+
+**Project:** Quality Intelligence — Code-Change Defect-Risk Predictor  
+**Date:** October 2026  
+**Auditor:** Quality Intelligence Senior Engineering & Empirical Research Team  
+**Audit Status:** Complete — 6 Issues Identified, Prioritized, and Formulated for Correction  
+**Baseline Test Verification:** 112/112 Python Pytest tests passing (100%), Vite Production Build passing (1,589 modules transformed)
+
+---
+
+## 1. Executive Summary & Verification Boundaries
+
+Before modifying code for Phase 10, a rigorous end-to-end audit was conducted across all repository directories: `frontend/`, `backend/`, `src/`, `tests/`, `models/`, `data/`, `reports/`, and `powerbi/`.
+
+### Preserved Core Assets Verified:
+- **Serialized Model Artifact:** `models/selected_model.joblib` (SHA-256: `4cb058e4dcf19ae46a366fbfd63a43fa69720b08051a66ff5bca778841da9ae5`). Intact, verified Random Forest classifier (200 estimators, max depth 12).
+- **Model Metadata:** `models/model_metadata.json`. Confirms 26 ordered features, training sample count 44,834 (2003–2016), random state 42.
+- **External Chronological Holdout:** 2017–2019 ($N=30,111$, 5,548 defective, prevalence 18.43%). Quarantined without leakage.
+- **Streamlit Platform:** Running on port 8501 (`app.py`), verified operational.
+- **FastAPI Engine:** Running on port 8000 (`backend/main.py`), verified operational.
+- **Developer Frontend SPA:** Built with Vite and running on port 5173 (`frontend/`), verified operational.
+- **Automated Tests:** 112 passed in 36.66s.
+
+---
+
+## 2. Confirmed Issues & Findings Matrix
+
+| ID | Issue Description | Severity | Affected Files | Proposed Correction |
+|---|---|---|---|---|
+| **ISSUE-10-01** | Model Feature Catalog Divergence in Frontend Model Center | **MEDIUM** | `frontend/src/pages/ModelCenterPage.tsx` | Align `FEATURE_CATALOG` with exact 26 features from `models/model_metadata.json` and make metadata cards dynamic. |
+| **ISSUE-10-02** | Default Policy Name Desynchronization | **MEDIUM** | `frontend/src/App.tsx`, `frontend/src/pages/*.tsx` | Change initial state from `'Balanced F1'` to canonical `"Balanced Policy (Default)"`. |
+| **ISSUE-10-03** | Power Query M Column Count Discrepancy | **LOW-MEDIUM** | `powerbi/PowerQuery_Analytics.m` | Change `Columns=22` to `Columns=23` to include `author_subsystem_exp`. |
+| **ISSUE-10-04** | Scenario Presets Missing Synthetic Example Disclaimers | **MEDIUM** | `frontend/src/pages/AnalysisPage.tsx` | Add explicit synthetic example labels and disclaimer banner to prevent confusion with real commits. |
+| **ISSUE-10-05** | Missing `.env.example` Configuration Template | **LOW** | Repository root (`.env.example`) | Create `.env.example` specifying host, port, CORS, and optional GitHub token. |
+| **ISSUE-10-06** | Starlette / FastAPI Deprecation Warnings in Test Suite | **LOW** | `backend/main.py`, `tests/test_phase9_fastapi.py` | Modernize HTTP status imports where applicable. |
+
+---
+
+## 3. Detailed Audit Findings
+
+### Issue 10-01: Model Feature Catalog Divergence in Frontend Model Center
+- **Description:** The static `FEATURE_CATALOG` constant in `frontend/src/pages/ModelCenterPage.tsx` listed features such as `log_la`, `churn_total`, `churn_ratio`, `dispersion_index`, `dev_density`, and `is_weekend`. However, the true serialized model in `models/model_metadata.json` uses the 26 features:
+  1. `la`, 2. `ld`, 3. `nf`, 4. `nd`, 5. `ns`, 6. `ent`, 7. `ndev`, 8. `age`, 9. `nuc`, 10. `aexp`, 11. `arexp`, 12. `asexp`, 13. `total_lines_changed`, 14. `net_lines_changed`, 15. `deletion_ratio`, 16. `files_per_subsystem`, 17. `directories_per_file`, 18. `experience_gap`, 19. `log1p_la`, 20. `log1p_ld`, 21. `log1p_total_lines_changed`, 22. `log1p_age`, 23. `log1p_nuc`, 24. `log1p_aexp`, 25. `log1p_arexp`, 26. `log1p_asexp`.
+- **Reproduction:** Inspect lines 28–56 of `frontend/src/pages/ModelCenterPage.tsx` and compare with line 27 of `models/model_metadata.json`.
+- **Correction:** Re-anchor `FEATURE_CATALOG` to the true 26 features.
+
+### Issue 10-02: Default Policy Name Desynchronization
+- **Description:** In `frontend/src/App.tsx`, `currentPolicy` was initialized as `'Balanced F1'`. In `src/dashboard_utils.py` and `/api/policies`, the canonical policy key is `"Balanced Policy (Default)"`. This caused initial page rendering to fallback to uncalibrated default values until the user interacted with the policy dropdown.
+- **Reproduction:** Load `App.tsx` and observe the policy selector dropdown before any user click.
+- **Correction:** Update default state in `App.tsx` and all child pages to `"Balanced Policy (Default)"`.
+
+### Issue 10-03: Power Query M Column Count Discrepancy
+- **Description:** In `powerbi/PowerQuery_Analytics.m` (Query 4, line 94), the M expression reads:
+  `Source = Csv.Document(Web.Contents(BaseUrl, [RelativePath="/api/analytics/export"]), [Delimiter=",", Columns=22, Encoding=65001, QuoteStyle=QuoteStyle.None])`.
+  The actual CSV export generated by `export_analytics_csv` in `backend/services.py` outputs 23 columns:
+  `run_id, timestamp_utc, commit_id, project, defect_risk_score, risk_tier, flagged_for_review, active_threshold, active_policy, model_version, total_lines_changed, lines_added, lines_deleted, modified_files, modified_directories, modified_subsystems, entropy, past_developers, file_age_days, unique_changes, author_experience, author_recent_exp, author_subsystem_exp`.
+- **Reproduction:** Ingest the CSV with `Columns=22`; the 23rd column (`author_subsystem_exp`) is omitted.
+- **Correction:** Change `Columns=22` to `Columns=23` in `powerbi/PowerQuery_Analytics.m`.
+
+### Issue 10-04: Scenario Presets Missing Synthetic Example Disclaimers
+- **Description:** In `frontend/src/pages/AnalysisPage.tsx`, preset scenarios ("Routine Doc Update", "Standard Bugfix", etc.) represent synthetic parameter combinations rather than real Apache commit hashes. While useful for behavioral simulation, they lacked explicit synthetic badges.
+- **Reproduction:** Inspect `AnalysisPage.tsx` preset scenario cards.
+- **Correction:** Add explicit `[SYNTHETIC SCENARIO EXAMPLE - NOT A REAL COMMIT PREDICTION]` disclaimers and tooltips.
+
+### Issue 10-05: Missing `.env.example` Configuration Template
+- **Description:** `.gitignore` excludes `.env` and `*.env`, but no `.env.example` existed to guide operators on configuration options (API host, port, CORS origins, GitHub personal access tokens).
+- **Reproduction:** Check workspace root for `.env.example`.
+- **Correction:** Create `.env.example` with documented environment variables.
+
+### Issue 10-06: Starlette / FastAPI Deprecation Warnings
+- **Description:** `tests/test_phase9_fastapi.py` generated 3 deprecation warnings regarding `HTTP_422_UNPROCESSABLE_ENTITY` and `TestClient`.
+- **Reproduction:** Run `pytest tests/ -q`.
+- **Correction:** Clean up imports or update assertions to maintain forward compatibility with modern Starlette releases.
+
+---
+
+## 4. Privacy, Secrets and Proprietary Data Audit
+
+- **Secrets Scan:** Checked for hardcoded tokens, passwords, private keys (`.pem`, `.key`, `.env`). None found.
+- **Proprietary Source Code:** Zero proprietary code diffs or commit blobs are persisted. All inference routines store only 12 numeric change metrics, 26 derived features, risk scores, and SHA-256 signatures.
+- **Dataset Boundaries:** Raw and processed ApacheJIT CSV files remain in `data/raw/` and `data/processed/`, properly ignored by `.gitignore`.
+
+---
+
+## 5. Audit Conclusion
+
+The architecture is sound, modular, and achieves complete test parity. Proceeding to **Stage 2 (Establish One Source of Truth)** and **Stage 3 (Real Commit & Feature-Provenance Audit)** to fix confirmed issues and establish end-to-end verification.

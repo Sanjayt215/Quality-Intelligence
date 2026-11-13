@@ -1,0 +1,12 @@
+{
+  "artifact_file": "calibrated_model.joblib",
+  "calibrator_method": "sigmoid_platt",
+  "base_estimator": "RandomForestClassifier",
+  "calibration_period": "2013-2014",
+  "training_prior": 0.5,
+  "historical_natural_prior": 0.2928,
+  "feature_count": 26,
+  "validation_brier_score": 0.1815,
+  "test_brier_score": 0.2082,
+  "note": "Calibrated artifact serialized separately. models/selected_model.joblib preserved as primary model."
+}

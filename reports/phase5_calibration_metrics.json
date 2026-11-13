@@ -1,0 +1,162 @@
+{
+  "internal_validation_2015_2016": {
+    "Prevalence Baseline": {
+      "model_name": "Prevalence Baseline (Val)",
+      "sample_size": 14616,
+      "defect_prevalence": 0.4964,
+      "mean_predicted_prob": 0.4964,
+      "brier_score": 0.25,
+      "log_loss": 0.6931,
+      "ece_10bins": 0.0,
+      "calibration_intercept": -0.0145,
+      "calibration_slope": 0.0002,
+      "pr_auc": 0.4964,
+      "roc_auc": 0.5
+    },
+    "Uncalibrated RF (fit <= 2014)": {
+      "model_name": "Uncalibrated RF (fit <= 2014)",
+      "sample_size": 14616,
+      "defect_prevalence": 0.4964,
+      "mean_predicted_prob": 0.5143,
+      "brier_score": 0.1725,
+      "log_loss": 0.5184,
+      "ece_10bins": 0.026,
+      "calibration_intercept": -0.1113,
+      "calibration_slope": 1.12,
+      "pr_auc": 0.8152,
+      "roc_auc": 0.8227
+    },
+    "Uncalibrated RF (fit <= 2012)": {
+      "model_name": "Uncalibrated RF (fit <= 2012)",
+      "sample_size": 14616,
+      "defect_prevalence": 0.4964,
+      "mean_predicted_prob": 0.5003,
+      "brier_score": 0.1813,
+      "log_loss": 0.5394,
+      "ece_10bins": 0.0155,
+      "calibration_intercept": -0.0245,
+      "calibration_slope": 1.1043,
+      "pr_auc": 0.79,
+      "roc_auc": 0.8031
+    },
+    "Platt / Sigmoid Calibrated": {
+      "model_name": "Platt / Sigmoid (Calib 2013-14)",
+      "sample_size": 14616,
+      "defect_prevalence": 0.4964,
+      "mean_predicted_prob": 0.5047,
+      "brier_score": 0.1815,
+      "log_loss": 0.5411,
+      "ece_10bins": 0.0175,
+      "calibration_intercept": -0.0476,
+      "calibration_slope": 1.0499,
+      "pr_auc": 0.79,
+      "roc_auc": 0.8031
+    },
+    "Isotonic Calibrated": {
+      "model_name": "Isotonic (Calib 2013-14)",
+      "sample_size": 14616,
+      "defect_prevalence": 0.4964,
+      "mean_predicted_prob": 0.5052,
+      "brier_score": 0.1821,
+      "log_loss": 0.5426,
+      "ece_10bins": 0.0183,
+      "calibration_intercept": -0.05,
+      "calibration_slope": 1.0273,
+      "pr_auc": 0.7784,
+      "roc_auc": 0.8021
+    },
+    "Prior-Correction Baseline (Natural Hist 29.3%)": {
+      "model_name": "Prior-Correction Baseline (29.3%)",
+      "sample_size": 14616,
+      "defect_prevalence": 0.4964,
+      "mean_predicted_prob": 0.357,
+      "brier_score": 0.1943,
+      "log_loss": 0.5726,
+      "ece_10bins": 0.1394,
+      "calibration_intercept": 0.8762,
+      "calibration_slope": 1.1199,
+      "pr_auc": 0.8152,
+      "roc_auc": 0.8227
+    }
+  },
+  "external_test_2017_2019": {
+    "Prevalence Baseline": {
+      "model_name": "Prevalence Baseline (Test)",
+      "sample_size": 30111,
+      "defect_prevalence": 0.1932,
+      "mean_predicted_prob": 0.1932,
+      "brier_score": 0.1559,
+      "log_loss": 0.4909,
+      "ece_10bins": 0.0,
+      "calibration_intercept": -0.4698,
+      "calibration_slope": 0.6715,
+      "pr_auc": 0.1932,
+      "roc_auc": 0.5
+    },
+    "Uncalibrated Selected RF (2003-2016)": {
+      "model_name": "Uncalibrated Selected RF",
+      "sample_size": 30111,
+      "defect_prevalence": 0.1932,
+      "mean_predicted_prob": 0.4718,
+      "brier_score": 0.2158,
+      "log_loss": 0.6236,
+      "ece_10bins": 0.2786,
+      "calibration_intercept": -1.7671,
+      "calibration_slope": 0.9716,
+      "pr_auc": 0.5111,
+      "roc_auc": 0.8075
+    },
+    "Platt / Sigmoid Calibrated": {
+      "model_name": "Platt / Sigmoid Calibrated",
+      "sample_size": 30111,
+      "defect_prevalence": 0.1932,
+      "mean_predicted_prob": 0.4578,
+      "brier_score": 0.2082,
+      "log_loss": 0.604,
+      "ece_10bins": 0.2646,
+      "calibration_intercept": -1.6441,
+      "calibration_slope": 1.0046,
+      "pr_auc": 0.4757,
+      "roc_auc": 0.7954
+    },
+    "Isotonic Calibrated": {
+      "model_name": "Isotonic Calibrated",
+      "sample_size": 30111,
+      "defect_prevalence": 0.1932,
+      "mean_predicted_prob": 0.458,
+      "brier_score": 0.2097,
+      "log_loss": 0.6058,
+      "ece_10bins": 0.2648,
+      "calibration_intercept": -1.643,
+      "calibration_slope": 1.0018,
+      "pr_auc": 0.4581,
+      "roc_auc": 0.7946
+    },
+    "Prior-Corrected (Historical Rate 29.3%)": {
+      "model_name": "Prior-Corrected (29.3%)",
+      "sample_size": 30111,
+      "defect_prevalence": 0.1932,
+      "mean_predicted_prob": 0.3219,
+      "brier_score": 0.1454,
+      "log_loss": 0.4452,
+      "ece_10bins": 0.1287,
+      "calibration_intercept": -0.911,
+      "calibration_slope": 0.9721,
+      "pr_auc": 0.5111,
+      "roc_auc": 0.8075
+    },
+    "Prior-Corrected (Test Prevalence 19.3%)": {
+      "model_name": "Prior-Corrected (19.3% Experimental)",
+      "sample_size": 30111,
+      "defect_prevalence": 0.1932,
+      "mean_predicted_prob": 0.24,
+      "brier_score": 0.1267,
+      "log_loss": 0.3977,
+      "ece_10bins": 0.0468,
+      "calibration_intercept": -0.3792,
+      "calibration_slope": 0.9719,
+      "pr_auc": 0.5111,
+      "roc_auc": 0.8075
+    }
+  }
+}

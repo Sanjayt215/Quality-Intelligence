@@ -1,0 +1,118 @@
+// =============================================================================
+// Quality Intelligence — DAX Measures for Power BI Desktop
+// Enterprise Software Quality Management Reporting
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Measure 1: Total Commits Analyzed
+// -----------------------------------------------------------------------------
+TotalCommitsAnalyzed = 
+COUNTROWS(Fact_CommitEvaluation)
+
+// -----------------------------------------------------------------------------
+// Measure 2: Commits Flagged for Prioritized Review
+// -----------------------------------------------------------------------------
+CommitsFlagged = 
+CALCULATE(
+    COUNTROWS(Fact_CommitEvaluation),
+    Fact_CommitEvaluation[flagged_for_review] = "FLAGGED"
+)
+
+// -----------------------------------------------------------------------------
+// Measure 3: Operational Review Workload Percentage
+// -----------------------------------------------------------------------------
+ReviewWorkloadPercentage = 
+DIVIDE(
+    [CommitsFlagged],
+    [TotalCommitsAnalyzed],
+    0.0
+)
+
+// -----------------------------------------------------------------------------
+// Measure 4: Average Predicted Defect-Risk Score
+// -----------------------------------------------------------------------------
+AverageRiskScore = 
+AVERAGE(Fact_CommitEvaluation[defect_risk_score])
+
+// -----------------------------------------------------------------------------
+// Measure 5: Critical Risk Commits Count
+// -----------------------------------------------------------------------------
+CriticalRiskCommits = 
+CALCULATE(
+    COUNTROWS(Fact_CommitEvaluation),
+    Fact_CommitEvaluation[risk_tier] = "Critical Risk"
+)
+
+// -----------------------------------------------------------------------------
+// Measure 6: Elevated Risk Commits Count
+// -----------------------------------------------------------------------------
+ElevatedRiskCommits = 
+CALCULATE(
+    COUNTROWS(Fact_CommitEvaluation),
+    Fact_CommitEvaluation[risk_tier] = "Elevated Risk"
+)
+
+// -----------------------------------------------------------------------------
+// Measure 7: Macro Average Leave-One-Project-Out ROC-AUC
+// (Arithmetic mean across evaluated repositories)
+// -----------------------------------------------------------------------------
+MacroAverageLOPOROC = 
+AVERAGEX(
+    FILTER(Fact_RepositoryBenchmark, NOT(ISBLANK(Fact_RepositoryBenchmark[LOPO ROC-AUC]))),
+    Fact_RepositoryBenchmark[LOPO ROC-AUC]
+)
+
+// -----------------------------------------------------------------------------
+// Measure 8: Macro Average Naive Churn ROC-AUC Baseline
+// -----------------------------------------------------------------------------
+MacroAverageChurnROC = 
+AVERAGEX(
+    FILTER(Fact_RepositoryBenchmark, NOT(ISBLANK(Fact_RepositoryBenchmark[Churn Baseline ROC-AUC]))),
+    Fact_RepositoryBenchmark[Churn Baseline ROC-AUC]
+)
+
+// -----------------------------------------------------------------------------
+// Measure 9: Model Advantage over Churn Baseline (Percentage Points)
+// -----------------------------------------------------------------------------
+ModelAdvantageOverChurn = 
+([MacroAverageLOPOROC] - [MacroAverageChurnROC]) * 100
+
+// -----------------------------------------------------------------------------
+// Measure 10: Expected Defect Recall at Active Policy
+// -----------------------------------------------------------------------------
+ExpectedDefectRecall = 
+VAR SelectedPolicyName = SELECTEDVALUE(Dim_Policy[Policy Name], "Balanced Policy (Default)")
+RETURN
+SWITCH(
+    SelectedPolicyName,
+    "High-Recall Policy (Safety/Core)", 0.915,
+    "Balanced Policy (Default)", 0.831,
+    "High-Precision Policy (High Velocity)", 0.684,
+    0.831
+)
+
+// -----------------------------------------------------------------------------
+// Measure 11: Expected Defect Precision at Active Policy
+// -----------------------------------------------------------------------------
+ExpectedDefectPrecision = 
+VAR SelectedPolicyName = SELECTEDVALUE(Dim_Policy[Policy Name], "Balanced Policy (Default)")
+RETURN
+SWITCH(
+    SelectedPolicyName,
+    "High-Recall Policy (Safety/Core)", 0.292,
+    "Balanced Policy (Default)", 0.348,
+    "High-Precision Policy (High Velocity)", 0.420,
+    0.348
+)
+
+// -----------------------------------------------------------------------------
+// Measure 12: Estimated Defects Caught in Current Scope
+// -----------------------------------------------------------------------------
+EstimatedDefectsCaught = 
+[CommitsFlagged] * [ExpectedDefectPrecision]
+
+// -----------------------------------------------------------------------------
+// Measure 13: Total Code Churn (Lines Added + Deleted)
+// -----------------------------------------------------------------------------
+TotalLinesChanged = 
+SUM(Fact_CommitEvaluation[total_lines_changed])

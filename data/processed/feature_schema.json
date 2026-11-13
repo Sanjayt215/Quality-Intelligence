@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "created_timestamp_utc": "2026-10-10T12:36:35.806442+00:00",
+    "pipeline": "Phase 2 Feature Engineering",
+    "train_source": "apachejit_train.csv",
+    "test_source": "apachejit_test_large.csv",
+    "train_row_count": 44834,
+    "test_row_count": 30111,
+    "predictor_feature_count": 26
+  },
+  "target_specification": {
+    "target_column": "buggy",
+    "dtype": "bool",
+    "semantics": "Bug-inducing commit identified via SZZ heuristic (not test-evading silent regression).",
+    "train_distribution": {
+      "clean_count": 22413,
+      "buggy_count": 22421,
+      "buggy_percentage": 50.01
+    },
+    "test_distribution": {
+      "clean_count": 24293,
+      "buggy_count": 5818,
+      "buggy_percentage": 19.32
+    }
+  },
+  "excluded_columns": [
+    {
+      "column": "commit_id",
+      "reason": "Unique hash identifier (100% cardinality). Excluded to prevent arbitrary overfitting.",
+      "retained_in": "phase2_*_labels.csv for traceability."
+    },
+    {
+      "column": "buggy",
+      "reason": "Prediction target. Excluded from feature matrices to prevent direct label leakage.",
+      "retained_in": "phase2_*_labels.csv."
+    },
+    {
+      "column": "fix",
+      "reason": "Indicates commit addresses a prior bug report. Excluded from default feature set due to target-construction bias.",
+      "retained_in": "Raw datasets / metadata."
+    },
+    {
+      "column": "year",
+      "reason": "Temporal integration year. Excluded to avoid model learning temporal epoch shortcuts.",
+      "retained_in": "Raw datasets / metadata for evaluation partitioning."
+    },
+    {
+      "column": "author_date",
+      "reason": "Raw Unix timestamp. Excluded to prevent tree models splitting directly on time.",
+      "retained_in": "Raw datasets / metadata."
+    },
+    {
+      "column": "project",
+      "reason": "Categorical project grouping. Reserved for group-aware cross-validation and subgroup analysis.",
+      "retained_in": "Raw datasets / metadata."
+    }
+  ],
+  "predictor_features": {
+    "la": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "ld": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "nf": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "nd": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "ns": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "ent": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "ndev": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "age": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "nuc": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "aexp": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "arexp": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "asexp": {
+      "dtype": "float64",
+      "category": "Original Metric"
+    },
+    "total_lines_changed": {
+      "dtype": "float64",
+      "category": "Engineered Derived"
+    },
+    "net_lines_changed": {
+      "dtype": "float64",
+      "category": "Engineered Derived"
+    },
+    "deletion_ratio": {
+      "dtype": "float64",
+      "category": "Engineered Derived"
+    },
+    "files_per_subsystem": {
+      "dtype": "float64",
+      "category": "Engineered Derived"
+    },
+    "directories_per_file": {
+      "dtype": "float64",
+      "category": "Engineered Derived"
+    },
+    "experience_gap": {
+      "dtype": "float64",
+      "category": "Engineered Derived"
+    },
+    "log1p_la": {
+      "dtype": "float64",
+      "category": "Log-Transformed"
+    },
+    "log1p_ld": {
+      "dtype": "float64",
+      "category": "Log-Transformed"
+    },
+    "log1p_total_lines_changed": {
+      "dtype": "float64",
+      "category": "Log-Transformed"
+    },
+    "log1p_age": {
+      "dtype": "float64",
+      "category": "Log-Transformed"
+    },
+    "log1p_nuc": {
+      "dtype": "float64",
+      "category": "Log-Transformed"
+    },
+    "log1p_aexp": {
+      "dtype": "float64",
+      "category": "Log-Transformed"
+    },
+    "log1p_arexp": {
+      "dtype": "float64",
+      "category": "Log-Transformed"
+    },
+    "log1p_asexp": {
+      "dtype": "float64",
+      "category": "Log-Transformed"
+    }
+  }
+}

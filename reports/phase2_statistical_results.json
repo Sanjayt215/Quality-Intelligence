@@ -1,0 +1,828 @@
+{
+  "metadata": {
+    "total_rows_evaluated": 44834,
+    "buggy_rows": 22421,
+    "clean_rows": 22413,
+    "random_seed": 42,
+    "alpha": 0.05,
+    "multiple_testing_method": "Benjamini-Hochberg (FDR)"
+  },
+  "numeric_hypotheses": [
+    {
+      "hypothesis_id": "H1",
+      "feature": "total_lines_changed",
+      "description": "Total lines of code changed (la + ld) differs by defect status",
+      "test_type": "Mann-Whitney U Test (Two-Sided)",
+      "test_statistic": 377978387.5,
+      "raw_p_value": 0.0,
+      "effect_size_name": "Cliff's Delta",
+      "effect_size_value": 0.5043,
+      "effect_size_magnitude": "Large",
+      "median_difference": 140.0,
+      "median_diff_ci_95": [
+        136.0,
+        145.0
+      ],
+      "group_buggy": {
+        "n": 22421,
+        "mean": 480.32,
+        "std": 953.15,
+        "median": 171.0,
+        "iqr": 418.0,
+        "skewness": 4.91
+      },
+      "group_clean": {
+        "n": 22413,
+        "mean": 137.52,
+        "std": 436.34,
+        "median": 31.0,
+        "iqr": 99.0,
+        "skewness": 10.45
+      },
+      "adjusted_p_value": 0.0,
+      "significant_at_alpha_0_05": true
+    },
+    {
+      "hypothesis_id": "H2",
+      "feature": "nf",
+      "description": "Number of modified files (nf) differs by defect status",
+      "test_type": "Mann-Whitney U Test (Two-Sided)",
+      "test_statistic": 363122576.5,
+      "raw_p_value": 0.0,
+      "effect_size_name": "Cliff's Delta",
+      "effect_size_value": 0.4452,
+      "effect_size_magnitude": "Medium",
+      "median_difference": 3.0,
+      "median_diff_ci_95": [
+        3.0,
+        3.0
+      ],
+      "group_buggy": {
+        "n": 22421,
+        "mean": 9.76,
+        "std": 12.59,
+        "median": 5.0,
+        "iqr": 8.0,
+        "skewness": 3.08
+      },
+      "group_clean": {
+        "n": 22413,
+        "mean": 4.29,
+        "std": 7.3,
+        "median": 2.0,
+        "iqr": 3.0,
+        "skewness": 5.89
+      },
+      "adjusted_p_value": 0.0,
+      "significant_at_alpha_0_05": true
+    },
+    {
+      "hypothesis_id": "H3",
+      "feature": "ent",
+      "description": "Entropy of change distribution across files (ent) differs by defect status",
+      "test_type": "Mann-Whitney U Test (Two-Sided)",
+      "test_statistic": 350417332.0,
+      "raw_p_value": 0.0,
+      "effect_size_name": "Cliff's Delta",
+      "effect_size_value": 0.3946,
+      "effect_size_magnitude": "Medium",
+      "median_difference": 0.81,
+      "median_diff_ci_95": [
+        0.79,
+        0.85
+      ],
+      "group_buggy": {
+        "n": 22421,
+        "mean": 1.81,
+        "std": 1.26,
+        "median": 1.67,
+        "iqr": 1.73,
+        "skewness": 0.55
+      },
+      "group_clean": {
+        "n": 22413,
+        "mean": 1.01,
+        "std": 1.09,
+        "median": 0.86,
+        "iqr": 1.56,
+        "skewness": 1.27
+      },
+      "adjusted_p_value": 0.0,
+      "significant_at_alpha_0_05": true
+    },
+    {
+      "hypothesis_id": "H4_ndev",
+      "feature": "ndev",
+      "description": "Historical metric 'ndev' differs by defect status",
+      "test_type": "Mann-Whitney U Test (Two-Sided)",
+      "test_statistic": 222995332.0,
+      "raw_p_value": 1.2133091188252808e-94,
+      "effect_size_name": "Cliff's Delta",
+      "effect_size_value": -0.1125,
+      "effect_size_magnitude": "Negligible",
+      "median_difference": -0.5,
+      "median_diff_ci_95": [
+        -0.6,
+        -0.5
+      ],
+      "group_buggy": {
+        "n": 22421,
+        "mean": 3.86,
+        "std": 6.56,
+        "median": 2.0,
+        "iqr": 3.45,
+        "skewness": 5.7
+      },
+      "group_clean": {
+        "n": 22413,
+        "mean": 5.24,
+        "std": 8.34,
+        "median": 2.5,
+        "iqr": 5.0,
+        "skewness": 4.62
+      },
+      "adjusted_p_value": 1.5599688670610755e-94,
+      "significant_at_alpha_0_05": true
+    },
+    {
+      "hypothesis_id": "H4_age",
+      "feature": "age",
+      "description": "Historical metric 'age' differs by defect status",
+      "test_type": "Mann-Whitney U Test (Two-Sided)",
+      "test_statistic": 288692147.5,
+      "raw_p_value": 3.669004377143996e-165,
+      "effect_size_name": "Cliff's Delta",
+      "effect_size_value": 0.149,
+      "effect_size_magnitude": "Small",
+      "median_difference": 8.75,
+      "median_diff_ci_95": [
+        8.0,
+        9.57
+      ],
+      "group_buggy": {
+        "n": 22421,
+        "mean": 46.34,
+        "std": 85.8,
+        "median": 17.25,
+        "iqr": 48.09,
+        "skewness": 5.23
+      },
+      "group_clean": {
+        "n": 22413,
+        "mean": 55.43,
+        "std": 129.48,
+        "median": 8.5,
+        "iqr": 46.77,
+        "skewness": 5.09
+      },
+      "adjusted_p_value": 6.604207878859193e-165,
+      "significant_at_alpha_0_05": true
+    },
+    {
+      "hypothesis_id": "H4_nuc",
+      "feature": "nuc",
+      "description": "Historical metric 'nuc' differs by defect status",
+      "test_type": "Mann-Whitney U Test (Two-Sided)",
+      "test_statistic": 281485687.5,
+      "raw_p_value": 7.813492163550932e-108,
+      "effect_size_name": "Cliff's Delta",
+      "effect_size_value": 0.1203,
+      "effect_size_magnitude": "Negligible",
+      "median_difference": 8.0,
+      "median_diff_ci_95": [
+        7.14,
+        9.0
+      ],
+      "group_buggy": {
+        "n": 22421,
+        "mean": 116.65,
+        "std": 268.4,
+        "median": 22.75,
+        "iqr": 71.1,
+        "skewness": 4.27
+      },
+      "group_clean": {
+        "n": 22413,
+        "mean": 110.58,
+        "std": 279.95,
+        "median": 14.75,
+        "iqr": 57.75,
+        "skewness": 4.59
+      },
+      "adjusted_p_value": 1.1720238245326397e-107,
+      "significant_at_alpha_0_05": true
+    },
+    {
+      "hypothesis_id": "H4_aexp",
+      "feature": "aexp",
+      "description": "Historical metric 'aexp' differs by defect status",
+      "test_type": "Mann-Whitney U Test (Two-Sided)",
+      "test_statistic": 226115968.0,
+      "raw_p_value": 3.244215237133425e-75,
+      "effect_size_name": "Cliff's Delta",
+      "effect_size_value": -0.1001,
+      "effect_size_magnitude": "Negligible",
+      "median_difference": -102.0,
+      "median_diff_ci_95": [
+        -114.0,
+        -88.98
+      ],
+      "group_buggy": {
+        "n": 22421,
+        "mean": 802.2,
+        "std": 1526.07,
+        "median": 221.0,
+        "iqr": 756.0,
+        "skewness": 3.65
+      },
+      "group_clean": {
+        "n": 22413,
+        "mean": 1283.2,
+        "std": 2339.69,
+        "median": 323.0,
+        "iqr": 1074.0,
+        "skewness": 2.66
+      },
+      "adjusted_p_value": 3.244215237133425e-75,
+      "significant_at_alpha_0_05": true
+    },
+    {
+      "hypothesis_id": "H4_arexp",
+      "feature": "arexp",
+      "description": "Historical metric 'arexp' differs by defect status",
+      "test_type": "Mann-Whitney U Test (Two-Sided)",
+      "test_statistic": 224825570.0,
+      "raw_p_value": 6.188867536147159e-83,
+      "effect_size_name": "Cliff's Delta",
+      "effect_size_value": -0.1052,
+      "effect_size_magnitude": "Negligible",
+      "median_difference": -71.98,
+      "median_diff_ci_95": [
+        -81.0,
+        -63.0
+      ],
+      "group_buggy": {
+        "n": 22421,
+        "mean": 487.11,
+        "std": 721.63,
+        "median": 190.5,
+        "iqr": 546.17,
+        "skewness": 2.37
+      },
+      "group_clean": {
+        "n": 22413,
+        "mean": 692.81,
+        "std": 981.33,
+        "median": 262.48,
+        "iqr": 768.5,
+        "skewness": 1.93
+      },
+      "adjusted_p_value": 6.962475978165554e-83,
+      "significant_at_alpha_0_05": true
+    },
+    {
+      "hypothesis_id": "H4_asexp",
+      "feature": "asexp",
+      "description": "Historical metric 'asexp' differs by defect status",
+      "test_type": "Mann-Whitney U Test (Two-Sided)",
+      "test_statistic": 187243844.5,
+      "raw_p_value": 0.0,
+      "effect_size_name": "Cliff's Delta",
+      "effect_size_value": -0.2548,
+      "effect_size_magnitude": "Small",
+      "median_difference": -64.0,
+      "median_diff_ci_95": [
+        -69.0,
+        -61.0
+      ],
+      "group_buggy": {
+        "n": 22421,
+        "mean": 273.39,
+        "std": 681.73,
+        "median": 8.0,
+        "iqr": 177.38,
+        "skewness": 4.05
+      },
+      "group_clean": {
+        "n": 22413,
+        "mean": 517.59,
+        "std": 1034.18,
+        "median": 72.0,
+        "iqr": 446.0,
+        "skewness": 2.87
+      },
+      "adjusted_p_value": 0.0,
+      "significant_at_alpha_0_05": true
+    }
+  ],
+  "categorical_hypothesis_h5": {
+    "hypothesis_id": "H5",
+    "feature": "project",
+    "description": "Defect-inducing rate varies across software projects",
+    "test_type": "Pearson Chi-Square Test of Independence",
+    "test_statistic": 8478.95,
+    "degrees_of_freedom": 14,
+    "raw_p_value": 0.0,
+    "adjusted_p_value": 0.0,
+    "significant_at_alpha_0_05": true,
+    "effect_size_name": "Cramer's V",
+    "effect_size_value": 0.4349,
+    "effect_size_magnitude": "Medium",
+    "project_rates": {
+      "apache/activemq": {
+        "total_commits": 2880,
+        "clean_commits": 1489,
+        "buggy_commits": 1391,
+        "defect_rate_pct": 48.3
+      },
+      "apache/camel": {
+        "total_commits": 8299,
+        "clean_commits": 5565,
+        "buggy_commits": 2734,
+        "defect_rate_pct": 32.94
+      },
+      "apache/cassandra": {
+        "total_commits": 5245,
+        "clean_commits": 2306,
+        "buggy_commits": 2939,
+        "defect_rate_pct": 56.03
+      },
+      "apache/flink": {
+        "total_commits": 3534,
+        "clean_commits": 2023,
+        "buggy_commits": 1511,
+        "defect_rate_pct": 42.76
+      },
+      "apache/groovy": {
+        "total_commits": 3031,
+        "clean_commits": 1526,
+        "buggy_commits": 1505,
+        "defect_rate_pct": 49.65
+      },
+      "apache/hadoop": {
+        "total_commits": 2865,
+        "clean_commits": 2865,
+        "buggy_commits": 0,
+        "defect_rate_pct": 0.0
+      },
+      "apache/hadoop-hdfs": {
+        "total_commits": 2330,
+        "clean_commits": 360,
+        "buggy_commits": 1970,
+        "defect_rate_pct": 84.55
+      },
+      "apache/hadoop-mapreduce": {
+        "total_commits": 1088,
+        "clean_commits": 263,
+        "buggy_commits": 825,
+        "defect_rate_pct": 75.83
+      },
+      "apache/hbase": {
+        "total_commits": 4747,
+        "clean_commits": 1552,
+        "buggy_commits": 3195,
+        "defect_rate_pct": 67.31
+      },
+      "apache/hive": {
+        "total_commits": 4037,
+        "clean_commits": 761,
+        "buggy_commits": 3276,
+        "defect_rate_pct": 81.15
+      },
+      "apache/ignite": {
+        "total_commits": 4400,
+        "clean_commits": 2984,
+        "buggy_commits": 1416,
+        "defect_rate_pct": 32.18
+      },
+      "apache/kafka": {
+        "total_commits": 612,
+        "clean_commits": 144,
+        "buggy_commits": 468,
+        "defect_rate_pct": 76.47
+      },
+      "apache/spark": {
+        "total_commits": 684,
+        "clean_commits": 212,
+        "buggy_commits": 472,
+        "defect_rate_pct": 69.01
+      },
+      "apache/zeppelin": {
+        "total_commits": 659,
+        "clean_commits": 246,
+        "buggy_commits": 413,
+        "defect_rate_pct": 62.67
+      },
+      "apache/zookeeper": {
+        "total_commits": 423,
+        "clean_commits": 117,
+        "buggy_commits": 306,
+        "defect_rate_pct": 72.34
+      }
+    }
+  },
+  "vif_analysis": [
+    {
+      "feature": "aexp",
+      "vif": 13.71,
+      "multicollinearity_risk": "High (VIF > 10)"
+    },
+    {
+      "feature": "arexp",
+      "vif": 12.82,
+      "multicollinearity_risk": "High (VIF > 10)"
+    },
+    {
+      "feature": "nf",
+      "vif": 4.97,
+      "multicollinearity_risk": "Low (VIF < 5)"
+    },
+    {
+      "feature": "nd",
+      "vif": 3.47,
+      "multicollinearity_risk": "Low (VIF < 5)"
+    },
+    {
+      "feature": "ent",
+      "vif": 3.06,
+      "multicollinearity_risk": "Low (VIF < 5)"
+    },
+    {
+      "feature": "asexp",
+      "vif": 2.83,
+      "multicollinearity_risk": "Low (VIF < 5)"
+    },
+    {
+      "feature": "ndev",
+      "vif": 2.75,
+      "multicollinearity_risk": "Low (VIF < 5)"
+    },
+    {
+      "feature": "nuc",
+      "vif": 2.64,
+      "multicollinearity_risk": "Low (VIF < 5)"
+    },
+    {
+      "feature": "ns",
+      "vif": 1.5,
+      "multicollinearity_risk": "Low (VIF < 5)"
+    },
+    {
+      "feature": "la",
+      "vif": 1.38,
+      "multicollinearity_risk": "Low (VIF < 5)"
+    },
+    {
+      "feature": "ld",
+      "vif": 1.28,
+      "multicollinearity_risk": "Low (VIF < 5)"
+    },
+    {
+      "feature": "age",
+      "vif": 1.04,
+      "multicollinearity_risk": "Low (VIF < 5)"
+    }
+  ],
+  "correlations": {
+    "pearson": {
+      "la": {
+        "la": 1.0,
+        "ld": 0.319,
+        "nf": 0.497,
+        "nd": 0.348,
+        "ns": 0.234,
+        "ent": 0.391,
+        "ndev": -0.13,
+        "age": -0.03,
+        "nuc": -0.086,
+        "aexp": -0.071,
+        "arexp": -0.081,
+        "asexp": -0.089
+      },
+      "ld": {
+        "la": 0.319,
+        "ld": 1.0,
+        "nf": 0.444,
+        "nd": 0.308,
+        "ns": 0.182,
+        "ent": 0.307,
+        "ndev": -0.094,
+        "age": 0.019,
+        "nuc": -0.061,
+        "aexp": -0.042,
+        "arexp": -0.045,
+        "asexp": -0.06
+      },
+      "nf": {
+        "la": 0.497,
+        "ld": 0.444,
+        "nf": 1.0,
+        "nd": 0.806,
+        "ns": 0.405,
+        "ent": 0.799,
+        "ndev": -0.201,
+        "age": 0.033,
+        "nuc": -0.111,
+        "aexp": -0.054,
+        "arexp": -0.053,
+        "asexp": -0.107
+      },
+      "nd": {
+        "la": 0.348,
+        "ld": 0.308,
+        "nf": 0.806,
+        "nd": 1.0,
+        "ns": 0.527,
+        "ent": 0.715,
+        "ndev": -0.15,
+        "age": 0.022,
+        "nuc": -0.049,
+        "aexp": -0.061,
+        "arexp": -0.06,
+        "asexp": -0.133
+      },
+      "ns": {
+        "la": 0.234,
+        "ld": 0.182,
+        "nf": 0.405,
+        "nd": 0.527,
+        "ns": 1.0,
+        "ent": 0.393,
+        "ndev": -0.019,
+        "age": -0.013,
+        "nuc": 0.101,
+        "aexp": -0.067,
+        "arexp": -0.074,
+        "asexp": -0.216
+      },
+      "ent": {
+        "la": 0.391,
+        "ld": 0.307,
+        "nf": 0.799,
+        "nd": 0.715,
+        "ns": 0.393,
+        "ent": 1.0,
+        "ndev": -0.255,
+        "age": 0.041,
+        "nuc": -0.111,
+        "aexp": -0.044,
+        "arexp": -0.046,
+        "asexp": -0.129
+      },
+      "ndev": {
+        "la": -0.13,
+        "ld": -0.094,
+        "nf": -0.201,
+        "nd": -0.15,
+        "ns": -0.019,
+        "ent": -0.255,
+        "ndev": 1.0,
+        "age": -0.039,
+        "nuc": 0.768,
+        "aexp": -0.072,
+        "arexp": -0.1,
+        "asexp": -0.062
+      },
+      "age": {
+        "la": -0.03,
+        "ld": 0.019,
+        "nf": 0.033,
+        "nd": 0.022,
+        "ns": -0.013,
+        "ent": 0.041,
+        "ndev": -0.039,
+        "age": 1.0,
+        "nuc": -0.056,
+        "aexp": 0.133,
+        "arexp": 0.097,
+        "asexp": 0.131
+      },
+      "nuc": {
+        "la": -0.086,
+        "ld": -0.061,
+        "nf": -0.111,
+        "nd": -0.049,
+        "ns": 0.101,
+        "ent": -0.111,
+        "ndev": 0.768,
+        "age": -0.056,
+        "nuc": 1.0,
+        "aexp": -0.037,
+        "arexp": -0.044,
+        "asexp": -0.109
+      },
+      "aexp": {
+        "la": -0.071,
+        "ld": -0.042,
+        "nf": -0.054,
+        "nd": -0.061,
+        "ns": -0.067,
+        "ent": -0.044,
+        "ndev": -0.072,
+        "age": 0.133,
+        "nuc": -0.037,
+        "aexp": 1.0,
+        "arexp": 0.958,
+        "asexp": 0.779
+      },
+      "arexp": {
+        "la": -0.081,
+        "ld": -0.045,
+        "nf": -0.053,
+        "nd": -0.06,
+        "ns": -0.074,
+        "ent": -0.046,
+        "ndev": -0.1,
+        "age": 0.097,
+        "nuc": -0.044,
+        "aexp": 0.958,
+        "arexp": 1.0,
+        "asexp": 0.759
+      },
+      "asexp": {
+        "la": -0.089,
+        "ld": -0.06,
+        "nf": -0.107,
+        "nd": -0.133,
+        "ns": -0.216,
+        "ent": -0.129,
+        "ndev": -0.062,
+        "age": 0.131,
+        "nuc": -0.109,
+        "aexp": 0.779,
+        "arexp": 0.759,
+        "asexp": 1.0
+      }
+    },
+    "spearman": {
+      "la": {
+        "la": 1.0,
+        "ld": 0.534,
+        "nf": 0.732,
+        "nd": 0.59,
+        "ns": 0.307,
+        "ent": 0.647,
+        "ndev": -0.371,
+        "age": 0.148,
+        "nuc": -0.055,
+        "aexp": -0.129,
+        "arexp": -0.131,
+        "asexp": -0.26
+      },
+      "ld": {
+        "la": 0.534,
+        "ld": 1.0,
+        "nf": 0.636,
+        "nd": 0.527,
+        "ns": 0.272,
+        "ent": 0.576,
+        "ndev": -0.265,
+        "age": 0.171,
+        "nuc": 0.022,
+        "aexp": -0.065,
+        "arexp": -0.061,
+        "asexp": -0.203
+      },
+      "nf": {
+        "la": 0.732,
+        "ld": 0.636,
+        "nf": 1.0,
+        "nd": 0.854,
+        "ns": 0.452,
+        "ent": 0.957,
+        "ndev": -0.401,
+        "age": 0.239,
+        "nuc": 0.057,
+        "aexp": -0.104,
+        "arexp": -0.101,
+        "asexp": -0.349
+      },
+      "nd": {
+        "la": 0.59,
+        "ld": 0.527,
+        "nf": 0.854,
+        "nd": 1.0,
+        "ns": 0.53,
+        "ent": 0.801,
+        "ndev": -0.218,
+        "age": 0.202,
+        "nuc": 0.21,
+        "aexp": -0.11,
+        "arexp": -0.107,
+        "asexp": -0.404
+      },
+      "ns": {
+        "la": 0.307,
+        "ld": 0.272,
+        "nf": 0.452,
+        "nd": 0.53,
+        "ns": 1.0,
+        "ent": 0.407,
+        "ndev": -0.029,
+        "age": 0.126,
+        "nuc": 0.257,
+        "aexp": -0.095,
+        "arexp": -0.096,
+        "asexp": -0.743
+      },
+      "ent": {
+        "la": 0.647,
+        "ld": 0.576,
+        "nf": 0.957,
+        "nd": 0.801,
+        "ns": 0.407,
+        "ent": 1.0,
+        "ndev": -0.405,
+        "age": 0.228,
+        "nuc": 0.026,
+        "aexp": -0.09,
+        "arexp": -0.086,
+        "asexp": -0.315
+      },
+      "ndev": {
+        "la": -0.371,
+        "ld": -0.265,
+        "nf": -0.401,
+        "nd": -0.218,
+        "ns": -0.029,
+        "ent": -0.405,
+        "ndev": 1.0,
+        "age": 0.063,
+        "nuc": 0.727,
+        "aexp": -0.09,
+        "arexp": -0.105,
+        "asexp": 0.017
+      },
+      "age": {
+        "la": 0.148,
+        "ld": 0.171,
+        "nf": 0.239,
+        "nd": 0.202,
+        "ns": 0.126,
+        "ent": 0.228,
+        "ndev": 0.063,
+        "age": 1.0,
+        "nuc": 0.082,
+        "aexp": -0.028,
+        "arexp": -0.048,
+        "asexp": -0.089
+      },
+      "nuc": {
+        "la": -0.055,
+        "ld": 0.022,
+        "nf": 0.057,
+        "nd": 0.21,
+        "ns": 0.257,
+        "ent": 0.026,
+        "ndev": 0.727,
+        "age": 0.082,
+        "nuc": 1.0,
+        "aexp": -0.014,
+        "arexp": -0.02,
+        "asexp": -0.124
+      },
+      "aexp": {
+        "la": -0.129,
+        "ld": -0.065,
+        "nf": -0.104,
+        "nd": -0.11,
+        "ns": -0.095,
+        "ent": -0.09,
+        "ndev": -0.09,
+        "age": -0.028,
+        "nuc": -0.014,
+        "aexp": 1.0,
+        "arexp": 0.989,
+        "asexp": 0.526
+      },
+      "arexp": {
+        "la": -0.131,
+        "ld": -0.061,
+        "nf": -0.101,
+        "nd": -0.107,
+        "ns": -0.096,
+        "ent": -0.086,
+        "ndev": -0.105,
+        "age": -0.048,
+        "nuc": -0.02,
+        "aexp": 0.989,
+        "arexp": 1.0,
+        "asexp": 0.527
+      },
+      "asexp": {
+        "la": -0.26,
+        "ld": -0.203,
+        "nf": -0.349,
+        "nd": -0.404,
+        "ns": -0.743,
+        "ent": -0.315,
+        "ndev": 0.017,
+        "age": -0.089,
+        "nuc": -0.124,
+        "aexp": 0.526,
+        "arexp": 0.527,
+        "asexp": 1.0
+      }
+    }
+  }
+}
