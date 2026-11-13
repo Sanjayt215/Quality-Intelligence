@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - QI_ENVIRONMENT=development
+      - QI_CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173,http://localhost:8501
+    volumes:
+      - ./reports/history:/app/reports/history
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python -m streamlit run app.py --server.port 8501 --server.headless true
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_HEADLESS=true
+    volumes:
+      - ./reports/history:/app/reports/history
+
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0 --port 5173"
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
